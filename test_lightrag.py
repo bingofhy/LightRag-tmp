@@ -18,9 +18,13 @@ import numpy as np
 from pathlib import Path
 from io import BytesIO
 
+from dotenv import load_dotenv
 from lightrag import LightRAG, QueryParam
 from lightrag.llm.openai import openai_complete_if_cache
 from lightrag.utils import wrap_embedding_func_with_attrs
+
+# 加载 .env 配置
+load_dotenv()
 
 nest_asyncio.apply()
 
@@ -32,16 +36,10 @@ PDF_FILE = "./test.pdf"  # 修改为你的 PDF 文件路径
 #                    配置区域
 # ============================================================
 
-# -------- LLM 配置 (修改这里切换不同的 LLM) --------
+# -------- LLM 配置 (从 .env 读取) --------
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
-LLM_BASE_URL = "https://api.minimax.chat/v1"  # API 端点
-LLM_MODEL = "MiniMax-M2.5"                     # 模型名称
-
-# 常用 API 端点参考:
-# OpenAI:       "https://api.openai.com/v1"           模型: "gpt-4o", "gpt-4o-mini"
-# DeepSeek:     "https://api.deepseek.com/v1"         模型: "deepseek-chat", "deepseek-reasoner"
-# Moonshot:     "https://api.moonshot.cn/v1"          模型: "moonshot-v1-8k", "moonshot-v1-32k"
-# MiniMax:      "https://api.minimax.chat/v1"         模型: "MiniMax-M2.5", "abab6.5s-chat"
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.minimax.chat/v1")
+LLM_MODEL = os.environ.get("LLM_MODEL", "MiniMax-M2.5")
 
 # -------- Embedding 配置 (本地模型) --------
 EMBEDDING_MODEL_PATH = "./models/bge-small-zh-v1.5"

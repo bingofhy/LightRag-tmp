@@ -1,7 +1,10 @@
-  .venv/
-  models/
-  .DS_Store
-  __pycache__/
-  *.pyc
-  .claude
-  EOF
+.venv/
+rag_storage/
+models/
+*.pdf
+*.doc
+.DS_Store
+__pycache__/
+*.pyc
+.claude/
+.env
