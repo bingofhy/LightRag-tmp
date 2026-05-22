@@ -1,0 +1,20 @@
+{
+  "doc-a32cd7fcba97a0c8f7db488475d3299a": {
+    "status": "processed",
+    "chunks_count": 2,
+    "chunks_list": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f",
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "content_summary": "小米公司：从“为发烧而生”到全球科技生态引领者 \n一、 创立与初心：打破行业壁垒（2010-2011） \n小米公司正式成立于 2010 年 4 月 6 日，由雷军联合林斌、黎万强等七位联合创始人共同创\n立，总部位于北京。创业之初， 小米并非直接制造硬件， 而是先开发了基于安卓深度定制的\n操作系统——MIUI。通过论坛与极客用户互动，MIUI 迅速积累了第一批“发烧友”，这种“用\n户参与开发”的模式奠定了小米独特的粉丝文化基础。 \n2011 年 8 月，小米发布了首款智能手机——小米手机 1。在当...",
+    "content_length": 2723,
+    "created_at": "2026-05-22T02:30:27.572037+00:00",
+    "updated_at": "2026-05-22T02:31:10.338803+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260522_103027_a7904695",
+    "metadata": {
+      "processing_start_time": 1779417027,
+      "processing_end_time": 1779417070
+    }
+  }
+}

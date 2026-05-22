@@ -1,0 +1,431 @@
+{
+  "小米": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米"
+  },
+  "雷军": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc",
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "雷军"
+  },
+  "小米10系列": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc",
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米10系列"
+  },
+  "小米SU7": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米SU7"
+  },
+  "澎湃OS": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "澎湃OS"
+  },
+  "MIUI": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f",
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "MIUI"
+  },
+  "小爱同学": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc",
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小爱同学"
+  },
+  "红米系列": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "红米系列"
+  },
+  "小米数字系列": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米数字系列"
+  },
+  "MIX系列": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "MIX系列"
+  },
+  "Civi系列": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "Civi系列"
+  },
+  "智能电视": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "智能电视"
+  },
+  "智能手环": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "智能手环"
+  },
+  "智能手表": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "智能手表"
+  },
+  "耳机": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "耳机"
+  },
+  "空气净化器": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "空气净化器"
+  },
+  "扫地机器人": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "扫地机器人"
+  },
+  "路由器": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "路由器"
+  },
+  "小米有品": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米有品"
+  },
+  "应用商店": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "应用商店"
+  },
+  "游戏联运": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "游戏联运"
+  },
+  "中国": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "中国"
+  },
+  "全球": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "全球"
+  },
+  "人-车-家全生态": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "人-车-家全生态"
+  },
+  "智能电动汽车": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc",
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "智能电动汽车"
+  },
+  "AIoT": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc",
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 2,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "AIoT"
+  },
+  "互联网思维改造传统行业": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "互联网思维改造传统行业"
+  },
+  "小米公司": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米公司"
+  },
+  "林斌": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "林斌"
+  },
+  "黎万强": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "黎万强"
+  },
+  "北京": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "北京"
+  },
+  "小米手机1": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米手机1"
+  },
+  "高通": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "高通"
+  },
+  "红米手机": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "红米手机"
+  },
+  "B轮融资": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "B轮融资"
+  },
+  "铁人三项": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "铁人三项"
+  },
+  "小米之家": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "小米之家"
+  },
+  "王翔": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "王翔"
+  },
+  "香港交易所": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "香港交易所"
+  },
+  "紫米": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "紫米"
+  },
+  "华米": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "华米"
+  },
+  "智米": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "智米"
+  },
+  "七位联合创始人": {
+    "chunk_ids": [
+      "chunk-3d53115d4331a6108b6e778bee3c915f"
+    ],
+    "count": 1,
+    "create_time": 1779417069,
+    "update_time": 1779417069,
+    "_id": "七位联合创始人"
+  },
+  "高端化战略": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417070,
+    "update_time": 1779417070,
+    "_id": "高端化战略"
+  },
+  "小米生态": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417070,
+    "update_time": 1779417070,
+    "_id": "小米生态"
+  },
+  "设备": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417070,
+    "update_time": 1779417070,
+    "_id": "设备"
+  },
+  "手机": {
+    "chunk_ids": [
+      "chunk-fdb937e9e57716d51ecc291d0e052dfc"
+    ],
+    "count": 1,
+    "create_time": 1779417070,
+    "update_time": 1779417070,
+    "_id": "手机"
+  }
+}

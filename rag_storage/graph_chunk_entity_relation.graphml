@@ -1,0 +1,1843 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d13" for="edge" attr.name="truncate" attr.type="string"/>
+<key id="d12" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d11" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d10" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d9" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d8" for="edge" attr.name="description" attr.type="string"/>
+<key id="d7" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d6" for="node" attr.name="truncate" attr.type="string"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Xiaomi Company">
+  <data key="d0">Xiaomi Company</data>
+  <data key="d1">organization</data>
+  <data key="d2">Xiaomi Company is a technology company founded in April 2010 by Lei Jun and seven co-founders, headquartered in Beijing. It evolved from a software OS developer (MIUI) to a global technology ecosystem leader, known for its smartphones, smart devices, and internet services.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Lei Jun">
+  <data key="d0">Lei Jun</data>
+  <data key="d1">person</data>
+  <data key="d2">Lei Jun is the founder and CEO of Xiaomi, who announced the company's entry into the smart electric vehicle industry in March 2021, describing it as his final entrepreneurial venture.&lt;SEP&gt;Lei Jun is the founder and chairman of Xiaomi Company. He led the company's founding in 2010 and personally took over smartphone R&amp;D and supply chain management in 2016. He committed that Xiaomi's hardware net profit margin would never exceed 5%.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f&lt;SEP&gt;chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Lin Bin">
+  <data key="d0">Lin Bin</data>
+  <data key="d1">person</data>
+  <data key="d2">Lin Bin is one of the seven co-founders of Xiaomi Company.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Li Wanqiang">
+  <data key="d0">Li Wanqiang</data>
+  <data key="d1">person</data>
+  <data key="d2">Li Wanqiang is one of the seven co-founders of Xiaomi Company.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Wang Xiang">
+  <data key="d0">Wang Xiang</data>
+  <data key="d1">person</data>
+  <data key="d2">Wang Xiang is a senior executive who joined Xiaomi to strengthen supply chain management in 2016. He previously served as Vice President at Qualcomm globally.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="MIUI">
+  <data key="d0">MIUI</data>
+  <data key="d1">content</data>
+  <data key="d2">MIUI is Xiaomi's previous mobile operating system, now replaced by Hyper OS, which has built a large active user base.&lt;SEP&gt;MIUI is a customized Android-based operating system developed by Xiaomi. Initially released in 2010, it accumulated the first batch of enthusiast users through forum interactions, establishing Xiaomi's unique fan culture.&lt;SEP&gt;MIUI是小米基于安卓深度定制的操作系统，通过论坛与极客用户互动积累了大量粉丝，成为小米生态的核心组成部分。&lt;SEP&gt;MIUI是小米公司的操作系统，为小米手机提供用户交互界面和服务，后被澎湃OS取代。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f&lt;SEP&gt;chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="Mi Phone 1">
+  <data key="d0">Mi Phone 1</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Mi Phone 1 is the first smartphone released by Xiaomi in August 2011. Priced at 1,999 yuan, it featured flagship-level specifications including a Qualcomm dual-core processor and 1GB RAM.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Redmi">
+  <data key="d0">Redmi</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Redmi is a budget smartphone brand launched by Xiaomi in 2013 at an extremely low price of 799 yuan, which helped popularize smartphones in China and eliminate counterfeit phone manufacturers.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Beijing">
+  <data key="d0">Beijing</data>
+  <data key="d1">location</data>
+  <data key="d2">Beijing is the city where Xiaomi Company's headquarters is located.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Hong Kong Stock Exchange">
+  <data key="d0">Hong Kong Stock Exchange</data>
+  <data key="d1">organization</data>
+  <data key="d2">The Hong Kong Stock Exchange is where Xiaomi Company went public on July 9, 2018, with stock code 01810 at an issue price of HK$17.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Mi Home">
+  <data key="d0">Mi Home</data>
+  <data key="d1">organization</data>
+  <data key="d2">Mi Home is Xiaomi's offline retail store chain launched as part of its New Retail strategy. It uses a "high-frequency帶動low-frequency" approach, selling products like fitness bands, earphones, and power strips to drive traffic for higher-ticket items like phones.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Mi 10 Series">
+  <data key="d0">Mi 10 Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Mi 10 Series is Xiaomi's premium smartphone lineup launched in 2020, successfully entering the 4,000+ yuan price range and marking a breakthrough in Xiaomi's premiumization strategy.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiao Ai">
+  <data key="d0">Xiao Ai</data>
+  <data key="d1">content</data>
+  <data key="d2">Xiao Ai is Xiaomi's AI voice assistant that connects smart devices including TVs, speakers, routers, and robot vacuums as part of Xiaomi's "AIoT" (Artificial Intelligence of Things) strategy.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Qualcomm">
+  <data key="d0">Qualcomm</data>
+  <data key="d1">organization</data>
+  <data key="d2">Qualcomm is a semiconductor company that supplies processors for Xiaomi smartphones, including the dual-core processor for Mi Phone 1 and the Snapdragon 820 chip for Mi 5.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Zimi">
+  <data key="d0">Zimi</data>
+  <data key="d1">organization</data>
+  <data key="d2">Zimi is a company invested in by Xiaomi's ecological chain that manufactures power banks.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Huami">
+  <data key="d0">Huami</data>
+  <data key="d1">organization</data>
+  <data key="d2">Huami is a company invested in by Xiaomi's ecological chain that manufactures fitness bands and wearables.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Zhimi">
+  <data key="d0">Zhimi</data>
+  <data key="d1">organization</data>
+  <data key="d2">Zhimi is a company invested in by Xiaomi's ecological chain that manufactures air purifiers.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Ecosystem Chain Plan">
+  <data key="d0">Ecosystem Chain Plan</data>
+  <data key="d1">event</data>
+  <data key="d2">The Ecosystem Chain Plan was launched by Xiaomi in late 2013 to invest in and incubate smart hardware companies. By 2017, it became the world's largest consumer IoT platform.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="IPO">
+  <data key="d0">IPO</data>
+  <data key="d1">event</data>
+  <data key="d2">Xiaomi Company's IPO occurred on July 9, 2018, at the Hong Kong Stock Exchange with an issue price of HK$17 per share.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smart Electric Vehicle Initiative">
+  <data key="d0">Smart Electric Vehicle Initiative</data>
+  <data key="d1">event</data>
+  <data key="d2">On March 30, 2021, Xiaomi announced its formal entry into the smart electric vehicle industry, described by Lei Jun as his "last entrepreneurial venture."</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="B Round Financing">
+  <data key="d0">B Round Financing</data>
+  <data key="d1">event</data>
+  <data key="d2">In 2012, Xiaomi Company completed its B round financing, reaching a valuation of 4 billion USD.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="450 Billion USD Valuation">
+  <data key="d0">450 Billion USD Valuation</data>
+  <data key="d1">data</data>
+  <data key="d2">In 2014, Xiaomi Company reached a valuation of 45 billion USD, becoming the world's most valuable unlisted technology company at that time.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi 5">
+  <data key="d0">Xiaomi 5</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Xiaomi 5 is a smartphone that experienced a delayed market launch due to the Snapdragon 820 chip supply issue.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Ironman Three">
+  <data key="d0">Ironman Three</data>
+  <data key="d1">concept</data>
+  <data key="d2">Ironman Three is Xiaomi Company's unique business model comprising three core components: hardware, new retail, and internet services. Hardware focuses on extreme cost-performance without relying on hardware profits; New Retail includes integrated online-offline channels like Mi Mall and Mi Home; Internet Services include MIUI ads, app stores, cloud services, and games.</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi">
+  <data key="d0">Xiaomi</data>
+  <data key="d1">organization</data>
+  <data key="d2">Xiaomi is a technology company headquartered in China that has expanded from smartphones to smart electric vehicles, AIoT products, and internet services, achieving global market presence.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi 10 Series">
+  <data key="d0">Xiaomi 10 Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The Xiaomi 10 Series was launched in 2020, representing the company's successful entry into the premium price segment above 4000 yuan.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smart Electric Vehicle Business">
+  <data key="d0">Smart Electric Vehicle Business</data>
+  <data key="d1">concept</data>
+  <data key="d2">Xiaomi's smart electric vehicle business was officially announced in March 2021, with plans to invest 10 billion USD over 10 years, including the establishment of a wholly-owned subsidiary.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi SU7">
+  <data key="d0">Xiaomi SU7</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The Xiaomi SU7 is Xiaomi's first smart electric vehicle model officially released in March 2024, developed with self-built factories and proprietary core technologies.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Hyper OS">
+  <data key="d0">Hyper OS</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Hyper OS (Pengpai OS) is an operating system launched in 2023 to replace MIUI, serving as the unified underlying system for all Xiaomi devices.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Redmi Series">
+  <data key="d0">Redmi Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The Redmi Series is Xiaomi's budget smartphone line focused on extreme cost-performance ratio.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi Number Series">
+  <data key="d0">Xiaomi Number Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The Xiaomi Number Series is the company's flagship high-end smartphone product line.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="MIX Series">
+  <data key="d0">MIX Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The MIX Series is Xiaomi's high-end smartphone product line featuring innovative designs.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Civi Series">
+  <data key="d0">Civi Series</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The Civi Series is Xiaomi's mid-range smartphone product line.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smart TV">
+  <data key="d0">Smart TV</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Smart TV is Xiaomi's smart home product that ranks #1 in the Chinese market.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smart Band">
+  <data key="d0">Smart Band</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Smart Band is Xiaomi's wearable fitness tracking device.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smartwatch">
+  <data key="d0">Smartwatch</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Smartwatch is Xiaomi's wearable device for health monitoring and notifications.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Earphones">
+  <data key="d0">Earphones</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Earphones are Xiaomi's wireless audio accessories.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Air Purifier">
+  <data key="d0">Air Purifier</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Air Purifier is Xiaomi's smart home air quality management device.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Sweeping Robot">
+  <data key="d0">Sweeping Robot</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Sweeping Robot is Xiaomi's smart home cleaning robot.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Router">
+  <data key="d0">Router</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Router is Xiaomi's smart home networking device.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi Electric Vehicle Wholly-Owned Subsidiary">
+  <data key="d0">Xiaomi Electric Vehicle Wholly-Owned Subsidiary</data>
+  <data key="d1">organization</data>
+  <data key="d2">Xiaomi's electric vehicle subsidiary is a wholly-owned company established for manufacturing smart electric vehicles, with Lei Jun serving as CEO.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Premiumization Strategy">
+  <data key="d0">Premiumization Strategy</data>
+  <data key="d1">concept</data>
+  <data key="d2">Xiaomi's premiumization strategy launched in 2020 marked the company's successful transition into the premium market segment.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Human-Car-Home Full Ecosystem Strategy">
+  <data key="d0">Human-Car-Home Full Ecosystem Strategy</data>
+  <data key="d1">concept</data>
+  <data key="d2">The Human-Car-Home Full Ecosystem Strategy integrates smartphones, smart home, and electric vehicles through unified accounts and operating systems for seamless collaboration.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="March 30, 2021">
+  <data key="d0">March 30, 2021</data>
+  <data key="d1">event</data>
+  <data key="d2">March 30, 2021 is the date when Xiaomi officially announced its entry into the smart electric vehicle industry.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="2020">
+  <data key="d0">2020</data>
+  <data key="d1">event</data>
+  <data key="d2">2020 is the year Xiaomi launched the Xiaomi 10 Series and achieved breakthrough in the premium segment above 4000 yuan.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="2024">
+  <data key="d0">2024</data>
+  <data key="d1">event</data>
+  <data key="d2">2024 is the year Xiaomi released its first electric vehicle model, the Xiaomi SU7.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="2023">
+  <data key="d0">2023</data>
+  <data key="d1">event</data>
+  <data key="d2">2023 is the year Xiaomi upgraded its strategy to the Human-Car-Home Full Ecosystem and launched Hyper OS.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="100 Billion Yuan">
+  <data key="d0">100 Billion Yuan</data>
+  <data key="d1">data</data>
+  <data key="d2">100 billion yuan is the initial investment amount for Xiaomi's electric vehicle business announced in 2021.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="10 Billion US Dollars">
+  <data key="d0">10 Billion US Dollars</data>
+  <data key="d1">data</data>
+  <data key="d2">10 billion US dollars is the planned investment over 10 years for Xiaomi's electric vehicle business.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="4000 Yuan">
+  <data key="d0">4000 Yuan</data>
+  <data key="d1">data</data>
+  <data key="d2">4000 yuan is the premium price threshold that Xiaomi achieved with the Xiaomi 10 Series in 2020.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Third Place Global Smartphone Shipments">
+  <data key="d0">Third Place Global Smartphone Shipments</data>
+  <data key="d1">concept</data>
+  <data key="d2">Third Place Global Smartphone Shipments refers to Xiaomi returning to the top three globally in smartphone shipments in 2020.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="100 Plus Countries">
+  <data key="d0">100 Plus Countries</data>
+  <data key="d1">data</data>
+  <data key="d2">100 plus countries is the number of markets where Xiaomi operates globally.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Hundreds Of Millions Monthly Active Users">
+  <data key="d0">Hundreds Of Millions Monthly Active Users</data>
+  <data key="d1">data</data>
+  <data key="d2">Hundreds of millions monthly active users represents Xiaomi's massive user base worldwide.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiao AI">
+  <data key="d0">Xiao AI</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Xiao AI is Xiaomi's AI voice assistant that builds user粘性(stickiness) through the MIUI system.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Xiaomi Youpin">
+  <data key="d0">Xiaomi Youpin</data>
+  <data key="d1">content</data>
+  <data key="d2">Xiaomi Youpin is Xiaomi's e-commerce platform for lifestyle products.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="App Store">
+  <data key="d0">App Store</data>
+  <data key="d1">content</data>
+  <data key="d2">App Store is Xiaomi's application distribution platform.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Game Joint Operation">
+  <data key="d0">Game Joint Operation</data>
+  <data key="d1">content</data>
+  <data key="d2">Game Joint Operation is Xiaomi's gaming partnership service.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Self-Built Factory">
+  <data key="d0">Self-Built Factory</data>
+  <data key="d1">method</data>
+  <data key="d2">Self-Built Factory refers to Xiaomi's manufacturing approach of building its own production facilities rather than using OEM.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Three Electric Systems">
+  <data key="d0">Three Electric Systems</data>
+  <data key="d1">concept</data>
+  <data key="d2">Three Electric Systems refer to the core technologies of battery, motor, and electronic control that Xiaomi develops in-house.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Autonomous Driving Technology">
+  <data key="d0">Autonomous Driving Technology</data>
+  <data key="d1">concept</data>
+  <data key="d2">Autonomous Driving Technology is the self-developed ADAS technology for Xiaomi's electric vehicles.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Mobile As Mobile Center">
+  <data key="d0">Mobile As Mobile Center</data>
+  <data key="d1">concept</data>
+  <data key="d2">Mobile As Mobile Center refers to using smartphones as the central hub for the ecosystem.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Home As Home Center">
+  <data key="d0">Home As Home Center</data>
+  <data key="d1">concept</data>
+  <data key="d2">Home As Home Center refers to using smart home devices as the household hub for the ecosystem.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Car As Travel Center">
+  <data key="d0">Car As Travel Center</data>
+  <data key="d1">concept</data>
+  <data key="d2">Car As Travel Center refers to using electric vehicles as the mobility hub for the ecosystem.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Unified Account">
+  <data key="d0">Unified Account</data>
+  <data key="d1">method</data>
+  <data key="d2">Unified Account is Xiaomi's system for connecting all devices across the ecosystem.</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357459</data>
+  <data key="d6"></data>
+</node>
+<node id="Smart Phone">
+  <data key="d0">Smart Phone</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">Smartphones serve as the mobile center in Xiaomi's ecosystem strategy.</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779357460</data>
+  <data key="d6"></data>
+</node>
+<node id="小米">
+  <data key="d0">小米</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米是一家以硬件为基础、 以互联网服务为利润来源、 以生态链为护城河的科技企业，业务涵盖智能手机、AIoT及生活消费产品、互联网服务和智能电动汽车等领域。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="雷军">
+  <data key="d0">雷军</data>
+  <data key="d1">person</data>
+  <data key="d2">雷军是小米公司的创始人兼CEO，带领小米从创业公司成长为全球知名科技企业，曾承诺小米硬件综合净利润率不超过5%。&lt;SEP&gt;雷军是小米的创始人和CEO，曾宣布进军智能电动汽车行业，并表示这是他人生最后一次创业，愿意押上全部声誉。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米10系列">
+  <data key="d0">小米10系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米10系列于2020年推出，成功冲击4000元以上价位，标志着小米高端化战略取得实质性突破。&lt;SEP&gt;小米10系列是小米于2020年推出的智能手机产品，成功冲击4000元以上价位，标志着高端化战略取得实质性突破。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米SU7">
+  <data key="d0">小米SU7</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米SU7是小米于2024年3月发布的首款智能电动汽车，凭借出色的设计、性能以及与小米生态的深度整合，迅速成为现象级产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="澎湃OS">
+  <data key="d0">澎湃OS</data>
+  <data key="d1">artifact</data>
+  <data key="d2">澎湃OS是小米推出的统一操作系统，于2023年推出，取代原先的MIUI，作为统一所有设备的底层系统。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小爱同学">
+  <data key="d0">小爱同学</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小爱同学是小米AIoT核心的语音助手，用于连接智能设备。&lt;SEP&gt;小爱同学是小米公司的AI语音助手，通过MIUI构建用户粘性。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="红米系列">
+  <data key="d0">红米系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">红米系列是小米旗下的智能手机产品线，主打极致性价比。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米数字系列">
+  <data key="d0">小米数字系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米数字系列是小米的高端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="MIX系列">
+  <data key="d0">MIX系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">MIX系列是小米的高端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="Civi系列">
+  <data key="d0">Civi系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Civi系列是小米的中端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="智能电视">
+  <data key="d0">智能电视</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能电视是小米AIoT及生活消费产品板块的核心产品，在中国市场销量第一。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="智能手环">
+  <data key="d0">智能手环</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能手环是小米可穿戴设备产品，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="智能手表">
+  <data key="d0">智能手表</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能手表是小米可穿戴设备产品，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="耳机">
+  <data key="d0">耳机</data>
+  <data key="d1">artifact</data>
+  <data key="d2">耳机是小米音频设备产品，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="空气净化器">
+  <data key="d0">空气净化器</data>
+  <data key="d1">artifact</data>
+  <data key="d2">空气净化器是小米智能家居产品，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="扫地机器人">
+  <data key="d0">扫地机器人</data>
+  <data key="d1">artifact</data>
+  <data key="d2">扫地机器人是小米智能家居产品，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="路由器">
+  <data key="d0">路由器</data>
+  <data key="d1">artifact</data>
+  <data key="d2">路由器是小米智能网络设备，属于AIoT及生活消费产品板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米有品">
+  <data key="d0">小米有品</data>
+  <data key="d1">content</data>
+  <data key="d2">小米有品是小米公司的电商平台，提供精选商品，属于互联网服务业务板块。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="应用商店">
+  <data key="d0">应用商店</data>
+  <data key="d1">content</data>
+  <data key="d2">应用商店是小米的互联网服务平台之一，提供各类应用程序下载。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="游戏联运">
+  <data key="d0">游戏联运</data>
+  <data key="d1">method</data>
+  <data key="d2">游戏联运是小米的互联网服务业务之一，提供游戏推广和运营服务。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="中国">
+  <data key="d0">中国</data>
+  <data key="d1">location</data>
+  <data key="d2">中国是小米最重要的市场之一，智能电视等产品在中国市场具有领先地位。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="全球">
+  <data key="d0">全球</data>
+  <data key="d1">location</data>
+  <data key="d2">全球是小米的业务覆盖范围，已扩展至100多个国家和地区。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="人-车-家全生态">
+  <data key="d0">人-车-家全生态</data>
+  <data key="d1">concept</data>
+  <data key="d2">人-车-家全生态是小米的战略方向，包括手机作为移动中心、智能家居作为家庭中心、汽车作为出行中心，三者通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="智能电动汽车">
+  <data key="d0">智能电动汽车</data>
+  <data key="d1">concept</data>
+  <data key="d2">智能电动汽车是小米于2021年宣布进军的新业务领域，是雷军的最后一次创业。&lt;SEP&gt;智能电动汽车是小米的第三大业务增长曲线，代表小米从消费电子领域向出行领域的战略扩展。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="AIoT">
+  <data key="d0">AIoT</data>
+  <data key="d1">concept</data>
+  <data key="d2">AIoT指人工智能物联网，是小米"手机+AIoT"双引擎战略的核心组成。&lt;SEP&gt;AIoT是人工智能物联网的概念，代表小米通过智能设备互联构建的生态系统，涉及智能电视、手环、手表、耳机、空气净化器、扫地机器人、路由器等设备。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="互联网思维改造传统行业">
+  <data key="d0">互联网思维改造传统行业</data>
+  <data key="d1">concept</data>
+  <data key="d2">互联网思维改造传统行业是小米的经典商业案例之一，体现了利用互联网方法和思维重塑传统产业商业模式的核心策略。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米公司">
+  <data key="d0">小米公司</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米公司成立于2010年4月6日，由雷军联合林斌、黎万强等七位联合创始人共同创立，总部位于北京。从“为发烧而生”的智能手机起步，发展成为全球科技生态引领者，业务涵盖手机、生态链、智能家居、智能电动汽车等。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="林斌">
+  <data key="d0">林斌</data>
+  <data key="d1">person</data>
+  <data key="d2">林斌是小米公司的联合创始人之一，参与了小米公司的创立。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="黎万强">
+  <data key="d0">黎万强</data>
+  <data key="d1">person</data>
+  <data key="d2">黎万强是小米公司的联合创始人之一，参与了小米公司的创立。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="北京">
+  <data key="d0">北京</data>
+  <data key="d1">location</data>
+  <data key="d2">北京是小米的总部所在地。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米手机1">
+  <data key="d0">小米手机1</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米手机1于2011年8月发布，是小米首款智能手机，以1999元的定价搭载高通双核处理器等旗舰配置，通过纯线上电商模式销售。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="高通">
+  <data key="d0">高通</data>
+  <data key="d1">organization</data>
+  <data key="d2">高通的手机处理器供应商，为小米手机提供处理器。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="红米手机">
+  <data key="d0">红米手机</data>
+  <data key="d1">artifact</data>
+  <data key="d2">红米手机于2013年问世，以799元的极致价格推动了中国智能手机的普及。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="B轮融资">
+  <data key="d0">B轮融资</data>
+  <data key="d1">event</data>
+  <data key="d2">2012年小米完成B轮融资，估值达40亿美元。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="铁人三项">
+  <data key="d0">铁人三项</data>
+  <data key="d1">concept</data>
+  <data key="d2">铁人三项是小米独特的商业模式，包括硬件+新零售+互联网服务，追求极致性价比。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="小米之家">
+  <data key="d0">小米之家</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米之家是小米的新零售线下门店，采用“高频带低频”策略销售生态链产品。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="王翔">
+  <data key="d0">王翔</data>
+  <data key="d1">person</data>
+  <data key="d2">王翔曾担任高通全球副总，2016年加入小米强化供应链管理。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="香港交易所">
+  <data key="d0">香港交易所</data>
+  <data key="d1">location</data>
+  <data key="d2">香港交易所是小米上市交易的证券交易所。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="紫米">
+  <data key="d0">紫米</data>
+  <data key="d1">organization</data>
+  <data key="d2">紫米是被小米投资的生态链企业，生产移动电源。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="华米">
+  <data key="d0">华米</data>
+  <data key="d1">organization</data>
+  <data key="d2">华米是被小米投资的生态链企业，生产手环。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="智米">
+  <data key="d0">智米</data>
+  <data key="d1">organization</data>
+  <data key="d2">智米是被小米投资的生态链企业，生产空气净化器。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="七位联合创始人">
+  <data key="d0">七位联合创始人</data>
+  <data key="d1">concept</data>
+  <data key="d2">七位联合创始人是指在2010年4月6日共同创立小米公司的八位创始人团队，包括雷军、林斌、黎万强等。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417069</data>
+  <data key="d6"></data>
+</node>
+<node id="高端化战略">
+  <data key="d0">高端化战略</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">小米10系列成功冲击4000元以上价位，代表小米在高端市场的突破。</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417070</data>
+  <data key="d6"></data>
+</node>
+<node id="小米生态">
+  <data key="d0">小米生态</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">小米SU7与小米生态实现深度整合，通过统一账号和操作系统实现与手机、智能家居的无缝协同。</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417070</data>
+  <data key="d6"></data>
+</node>
+<node id="设备">
+  <data key="d0">设备</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">澎湃OS作为统一所有设备的底层系统，实现人-车-家全生态的互联互通。</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417070</data>
+  <data key="d6"></data>
+</node>
+<node id="手机">
+  <data key="d0">手机</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">手机与AIoT设备通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779417070</data>
+  <data key="d6"></data>
+</node>
+<edge source="Xiaomi Company" target="Lei Jun">
+  <data key="d7">1.0</data>
+  <data key="d8">Lei Jun founded Xiaomi Company in 2010 and has led the company through all stages of development, including taking direct control of R&amp;D and supply chain in 2016.</data>
+  <data key="d9">founder,leadership</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Lin Bin">
+  <data key="d7">1.0</data>
+  <data key="d8">Lin Bin is one of the seven co-founders of Xiaomi Company.</data>
+  <data key="d9">co-founder,partnership</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Li Wanqiang">
+  <data key="d7">1.0</data>
+  <data key="d8">Li Wanqiang is one of the seven co-founders of Xiaomi Company.</data>
+  <data key="d9">co-founder,partnership</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Beijing">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company is headquartered in Beijing.</data>
+  <data key="d9">headquarters location</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="MIUI">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company first developed MIUI, a customized Android OS, before entering hardware manufacturing. This user-participatory development model established Xiaomi's fan culture.</data>
+  <data key="d9">software development,user engagement</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Mi Phone 1">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company launched its first smartphone in 2011, disrupting industry pricing with the 1,999 yuan flagship configuration.</data>
+  <data key="d9">market disruption,product launch</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Redmi">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company launched Redmi in 2013 to capture the budget smartphone market, becoming China's top smartphone vendor by 2014.</data>
+  <data key="d9">brand expansion,market domination</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Mi Home">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company launched Mi Home stores as part of its New Retail strategy to expand offline presence.</data>
+  <data key="d9">omnichannel,retail strategy</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Hong Kong Stock Exchange">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company listed its shares on the Hong Kong Stock Exchange in 2018.</data>
+  <data key="d9">capital markets,public listing</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Wang Xiang">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company hired Wang Xiang in 2016 to strengthen supply chain management after facing challenges.</data>
+  <data key="d9">executive hire,supply chain management</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Zimi">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company invested in Zimi through its Ecosystem Chain Plan to produce power banks.</data>
+  <data key="d9">ecosystem investment,resource sharing</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Huami">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company invested in Huami through its Ecosystem Chain Plan to produce fitness bands.</data>
+  <data key="d9">ecosystem investment,resource sharing</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Zhimi">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company invested in Zhimi through its Ecosystem Chain Plan to produce air purifiers.</data>
+  <data key="d9">ecosystem investment,resource sharing</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Ecosystem Chain Plan">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company launched the Ecosystem Chain Plan in 2013 to build the world's largest consumer IoT platform.</data>
+  <data key="d9">IoT expansion,platform development</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Smart Electric Vehicle Initiative">
+  <data key="d7">1.0</data>
+  <data key="d8">In 2021, Xiaomi Company announced its entry into the smart electric vehicle market as a new business venture.</data>
+  <data key="d9">business expansion,strategic转型</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Qualcomm">
+  <data key="d7">1.0</data>
+  <data key="d8">Qualcomm supplies processors for Xiaomi smartphones.</data>
+  <data key="d9">component supply,partnership</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="B Round Financing">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company completed its B round financing in 2012, achieving a valuation of 4 billion USD.</data>
+  <data key="d9">funding event,valuation growth</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="450 Billion USD Valuation">
+  <data key="d7">1.0</data>
+  <data key="d8">In 2014, Xiaomi Company reached a valuation of 45 billion USD, ranking first in China's smartphone market and third globally.</data>
+  <data key="d9">corporate value,market dominance</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Xiaomi 5">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company released Xiaomi 5, but it faced delays due to the Snapdragon 820 chip supply issue, contributing to a revenue decline in 2015-2016.</data>
+  <data key="d9">product launch,supply chain crisis</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi Company" target="Ironman Three">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi Company implemented the Ironman Three business model as its core strategy for growth and profitability.</data>
+  <data key="d9">business model,strategic framework</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Lei Jun" target="Smart Electric Vehicle Initiative">
+  <data key="d7">1.0</data>
+  <data key="d8">Lei Jun described entering the smart EV industry as his "last entrepreneurial venture."</data>
+  <data key="d9">entrepreneur vision,leadership commitment</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Lei Jun" target="Xiaomi">
+  <data key="d7">1.0</data>
+  <data key="d8">Lei Jun founded Xiaomi and led the company through its evolution from a startup to a global technology enterprise.</data>
+  <data key="d9">founder,leadership,vision</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Lei Jun" target="Smart Electric Vehicle Business">
+  <data key="d7">1.0</data>
+  <data key="d8">Lei Jun announced his final entrepreneurial venture in smart electric vehicles,，愿意押上全部声誉, committing his full reputation to the project.</data>
+  <data key="d9">commitment,entrepreneurship,final venture</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Lei Jun" target="Xiaomi Electric Vehicle Wholly-Owned Subsidiary">
+  <data key="d7">1.0</data>
+  <data key="d8">Lei Jun personally serves as the CEO of Xiaomi's electric vehicle subsidiary.</data>
+  <data key="d9">CEO,directorship,leadership</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Wang Xiang" target="Qualcomm">
+  <data key="d7">1.0</data>
+  <data key="d8">Wang Xiang previously served as Vice President at Qualcomm before joining Xiaomi.</data>
+  <data key="d9">expertise,prior employment</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357459</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MIUI" target="Xiaomi">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi developed MIUI as its previous operating system, which built a large active user base.</data>
+  <data key="d9">legacy system,user base building</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MIUI" target="澎湃OS">
+  <data key="d7">1.0</data>
+  <data key="d8">澎湃OS取代原先的MIUI，作为统一的操作系统。</data>
+  <data key="d9">技术升级,系统迭代</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MIUI" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司开发了基于安卓深度定制的操作系统MIUI，通过论坛与用户互动。</data>
+  <data key="d9">开发,运营</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Xiaomi 10 Series">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi launched the Xiaomi 10 Series in 2020 as part of its premiumization strategy.</data>
+  <data key="d9">premium strategy,product launch</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Xiaomi SU7">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi developed and released the SU7 as its first electric vehicle model.</data>
+  <data key="d9">first EV model,product development</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Human-Car-Home Full Ecosystem Strategy">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi upgraded its strategy to integrate smartphones, AIoT, and electric vehicles into a unified ecosystem.</data>
+  <data key="d9">ecosystem expansion,strategic integration</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Hyper OS">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi launched Hyper OS to unify all device ecosystems under one operating system.</data>
+  <data key="d9">platform integration,software unification</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Smart TV">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi's Smart TV holds the #1 position in the Chinese market.</data>
+  <data key="d9">market leadership,product category</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Router">
+  <data key="d7">1.0</data>
+  <data key="d8">Router is part of Xiaomi's smart home product ecosystem.</data>
+  <data key="d9">IoT ecosystem,smart home product</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Sweeping Robot">
+  <data key="d7">1.0</data>
+  <data key="d8">Sweeping Robot is part of Xiaomi's smart home product ecosystem.</data>
+  <data key="d9">IoT ecosystem,smart home product</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Smart Band">
+  <data key="d7">1.0</data>
+  <data key="d8">Smart Band is part of Xiaomi's wearable and IoT product ecosystem.</data>
+  <data key="d9">IoT ecosystem,wearable product</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Earphones">
+  <data key="d7">1.0</data>
+  <data key="d8">Earphones are part of Xiaomi's audio and IoT product ecosystem.</data>
+  <data key="d9">IoT ecosystem,audio product</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Premiumization Strategy">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi's premiumization strategy successfully positioned the company in the high-end market segment.</data>
+  <data key="d9">market positioning,strategic transformation</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Redmi Series">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi's Redmi Series targets the budget-conscious consumer segment with extreme cost-performance.</data>
+  <data key="d9">budget product line,market segmentation</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Xiaomi Number Series">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi's Number Series represents the company's flagship high-end smartphone offerings.</data>
+  <data key="d9">flagship product line,high-end market</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Self-Built Factory">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi chooses to build its own factories instead of using OEM for vehicle production.</data>
+  <data key="d9">manufacturing strategy,vertical integration</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Xiao AI">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi builds user粘性(stickiness) through the Xiao AI assistant.</data>
+  <data key="d9">AI assistant,user engagement</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Game Joint Operation">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi offers game joint operation as part of its internet services.</data>
+  <data key="d9">internet service,revenue stream</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="App Store">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi operates an App Store as part of its internet services.</data>
+  <data key="d9">distribution platform,internet service</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Xiaomi Youpin">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi operates Xiaomi Youpin as its e-commerce platform.</data>
+  <data key="d9">e-commerce,revenue stream</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi" target="Third Place Global Smartphone Shipments">
+  <data key="d7">1.0</data>
+  <data key="d8">Xiaomi achieved third place globally in smartphone shipments in 2020.</data>
+  <data key="d9">achievement,market ranking</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi 10 Series" target="4000 Yuan">
+  <data key="d7">1.0</data>
+  <data key="d8">The Xiaomi 10 Series was priced above 4000 yuan, marking Xiaomi's successful entry into the premium segment.</data>
+  <data key="d9">premium strategy,price point</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Smart Electric Vehicle Business" target="Car As Travel Center">
+  <data key="d7">1.0</data>
+  <data key="d8">Electric vehicles serve as the travel center in Xiaomi's ecosystem strategy.</data>
+  <data key="d9">ecosystem hub,mobility</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi SU7" target="Hyper OS">
+  <data key="d7">1.0</data>
+  <data key="d8">The Xiaomi SU7 integrates deeply with Hyper OS for seamless vehicle-ecosystem coordination.</data>
+  <data key="d9">ecosystem synergy,software integration</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi SU7" target="Autonomous Driving Technology">
+  <data key="d7">1.0</data>
+  <data key="d8">The Xiaomi SU7 features self-developed autonomous driving technology.</data>
+  <data key="d9">self-development,technology integration</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Xiaomi SU7" target="Three Electric Systems">
+  <data key="d7">1.0</data>
+  <data key="d8">The Xiaomi SU7 uses Xiaomi's self-developed three electric systems.</data>
+  <data key="d9">core technology,self-development</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Mobile As Mobile Center" target="Smart Phone">
+  <data key="d7">1.0</data>
+  <data key="d8">Smartphones serve as the mobile center in Xiaomi's ecosystem strategy.</data>
+  <data key="d9">connectivity,ecosystem hub</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779357460</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="雷军">
+  <data key="d7">2.0</data>
+  <data key="d8">小米授权雷军担任小米汽车CEO，负责智能电动汽车业务的整体运营。&lt;SEP&gt;雷军是小米的创始人，负责小米的整体战略规划和业务发展。</data>
+  <data key="d9">CEO任命,公司领导,创办关系,授权关系</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="小米10系列">
+  <data key="d7">1.0</data>
+  <data key="d8">小米推出小米10系列手机，标志其高端化战略取得实质性突破。</data>
+  <data key="d9">产品推出,高端化战略</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="智能电动汽车">
+  <data key="d7">1.0</data>
+  <data key="d8">小米宣布进军智能电动汽车行业，将汽车作为出行中心纳入生态版图。</data>
+  <data key="d9">业务拓展,战略转型</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="小米SU7">
+  <data key="d7">1.0</data>
+  <data key="d8">小米发布首款车型小米SU7，正式进入智能电动汽车市场。</data>
+  <data key="d9">产品发布,新车上市</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="人-车-家全生态">
+  <data key="d7">1.0</data>
+  <data key="d8">小米将战略升级为“人-车-家全生态”，整合手机、AIoT和汽车三大业务。</data>
+  <data key="d9">战略升级,生态布局</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="红米系列">
+  <data key="d7">1.0</data>
+  <data key="d8">小米旗下红米系列主打极致性价比，覆盖不同消费群体。</data>
+  <data key="d9">产品线布局,性价比策略</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="小米数字系列">
+  <data key="d7">1.0</data>
+  <data key="d8">小米数字系列定位高端市场，代表小米的高端产品线。</data>
+  <data key="d9">产品线布局,高端策略</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">小米通过AIoT及生活消费产品构建全球最大的消费级IoT平台之一。</data>
+  <data key="d9">平台搭建,生态建设</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="互联网思维改造传统行业">
+  <data key="d7">1.0</data>
+  <data key="d8">小米案例是"互联网思维改造传统行业"最经典的商业案例之一。</data>
+  <data key="d9">商业模式创新,行业变革</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="雷军" target="智能电动汽车">
+  <data key="d7">1.0</data>
+  <data key="d8">雷军表示进军智能电动汽车是他人生最后一次创业，愿意押上全部声誉。</data>
+  <data key="d9">个人承诺,最后一战</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="雷军" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">雷军是小米公司的主要创始人，联合林斌、黎万强等于2010年创立小米公司。</data>
+  <data key="d9">创立,投资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米10系列" target="高端化战略">
+  <data key="d7">1.0</data>
+  <data key="d8">小米10系列成功冲击4000元以上价位，代表小米在高端市场的突破。</data>
+  <data key="d9">价格突破,市场定位</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米10系列" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司于2020年推出小米10系列，成功冲击高端市场。</data>
+  <data key="d9">发布,高端化产品</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米SU7" target="小米生态">
+  <data key="d7">1.0</data>
+  <data key="d8">小米SU7与小米生态实现深度整合，通过统一账号和操作系统实现与手机、智能家居的无缝协同。</data>
+  <data key="d9">产品联动,生态整合</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="澎湃OS" target="设备">
+  <data key="d7">1.0</data>
+  <data key="d8">澎湃OS作为统一所有设备的底层系统，实现人-车-家全生态的互联互通。</data>
+  <data key="d9">底层支持,系统统一</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小爱同学" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小爱同学是小米连接智能设备的语音助手。</data>
+  <data key="d9">AI助手,语音交互</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能电视" target="人-车-家全生态">
+  <data key="d7">1.0</data>
+  <data key="d8">智能电视作为智能家居代表产品，是家庭中心的核心设备。</data>
+  <data key="d9">家庭场景,生态组件</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能电视" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">智能电视是AIoT产品线中的核心产品，在中国市场销量第一。</data>
+  <data key="d9">产品分类,家庭互联</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能手环" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">智能手环是AIoT可穿戴设备产品线的重要组成。</data>
+  <data key="d9">产品分类,可穿戴设备</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能手表" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">智能手表是AIoT可穿戴设备产品线的重要组成。</data>
+  <data key="d9">产品分类,可穿戴设备</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="扫地机器人" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">扫地机器人是AIoT智能家居产品线的代表性产品。</data>
+  <data key="d9">产品分类,智能家居</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="路由器" target="AIoT">
+  <data key="d7">1.0</data>
+  <data key="d8">路由器是AIoT智能网络设备，属于基础设施类产品。</data>
+  <data key="d9">产品分类,网络设备</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能电动汽车" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司于2021年宣布进军智能电动汽车业务。</data>
+  <data key="d9">战略扩张,新业务</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="AIoT" target="手机">
+  <data key="d7">1.0</data>
+  <data key="d8">手机与AIoT设备通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d9">生态协同,设备联动</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="AIoT" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司实施"手机+AIoT"双引擎战略。</data>
+  <data key="d9">战略布局,物联网</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="林斌">
+  <data key="d7">1.0</data>
+  <data key="d8">林斌作为联合创始人参与创立小米公司。</data>
+  <data key="d9">创立,合作</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="黎万强">
+  <data key="d7">1.0</data>
+  <data key="d8">黎万强作为联合创始人参与创立小米公司。</data>
+  <data key="d9">创立,合作</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="北京">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司总部位于北京。</data>
+  <data key="d9">location,总部所在地</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米手机1">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司于2011年8月发布首款智能手机小米手机1。</data>
+  <data key="d9">产品,发布</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="红米手机">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司于2013年推出红米手机，推动中国智能手机普及。</data>
+  <data key="d9">产品,发布</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="铁人三项">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司探索出“铁人三项“商业模式，包括硬件、新零售和互联网服务。</data>
+  <data key="d9">创新,商业模式</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米之家">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司启动新零售战略，拓展线下渠道小米之家。</data>
+  <data key="d9">渠道拓展,零售</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="王翔">
+  <data key="d7">1.0</data>
+  <data key="d8">2016年小米任命王翔强化供应链管理。</data>
+  <data key="d9">任命,供应链管理</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="香港交易所">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司于2018年7月9日在香港交易所主板上市。</data>
+  <data key="d9">上市,融资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="紫米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司投资生态链企业紫米生产移动电源。</data>
+  <data key="d9">投资,生态链</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="华米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司投资生态链企业华米生产手环。</data>
+  <data key="d9">投资,生态链</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="智米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司投资生态链企业智米生产空气净化器。</data>
+  <data key="d9">投资,生态链</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="B轮融资">
+  <data key="d7">1.0</data>
+  <data key="d8">2012年小米完成B轮融资，估值达40亿美元，支持公司发展。</data>
+  <data key="d9">发展资金,融资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="七位联合创始人">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司由雷军联合林斌、黎万强等七位联合创始人共同创立。</data>
+  <data key="d9">创立,团队构成</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米手机1" target="高通">
+  <data key="d7">1.0</data>
+  <data key="d8">小米手机1搭载高通双核处理器。</data>
+  <data key="d9">处理器供应,硬件支持</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779417070</data>
+  <data key="d13"></data>
+</edge>
+</graph></graphml>
