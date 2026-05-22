@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightRAG 流程图</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#bbdefb',
+                primaryTextColor: '#1565c0',
+                primaryBorderColor: '#1565c0',
+                lineColor: '#455a64',
+                secondaryColor: '#c8e6c9',
+                tertiaryColor: '#fff9c4',
+                background: '#ffffff',
+                mainBkg: '#e1f5fe',
+                nodeBorder: '#01579b',
+                clusterBkg: '#f5f5f5',
+                clusterBorder: '#9e9e9e',
+                titleColor: '#333333',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Arial, sans-serif'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #00d9ff 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #00d9ff;
+        }
+        .diagram-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #e0e0e0;
+        }
+        .description {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .description h3 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        .description p {
+            color: #424242;
+            line-height: 1.6;
+        }
+        .mode-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .mode-table th, .mode-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .mode-table th {
+            background: #f3e5f5;
+            color: #4a148c;
+            font-weight: 600;
+        }
+        .mode-table tr:hover {
+            background: #f5f5f5;
+        }
+        .role-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .role-table th {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin: 2px;
+        }
+        .tag-naive { background: #e1bee7; color: #4a148c; }
+        .tag-local { background: #c5cae9; color: #1a237e; }
+        .tag-global { background: #bbdefb; color: #0d47a1; }
+        .tag-hybrid { background: #b2dfdb; color: #004d40; }
+        .tag-mix { background: #ffccbc; color: #bf360c; }
+        .tag-bypass { background: #e0e0e0; color: #616161; }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .toc {
+            background: #f5f5f5;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .toc h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .toc ul {
+            list-style: none;
+        }
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .toc li:last-child {
+            border-bottom: none;
+        }
+        .toc a {
+            color: #00d9ff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .toc a:hover {
+            color: #764ba2;
+        }
+        /* 代码块样式（非mermaid） */
+        pre:not(.mermaid) {
+            background: #263238;
+            color: #aed581;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        /* mermaid图表容器样式 - 使用浅色背景 */
+        .diagram-container pre.mermaid {
+            background: #ffffff;
+            color: #333333;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>LightRAG 流程图</h1>
+            <p>从文档索引到查询响应的完整处理流程</p>
+        </div>
+
+        <div class="content">
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>目录</h2>
+                <ul>
+                    <li><a href="#section1">1. 文档索引流程</a></li>
+                    <li><a href="#section2">2. 查询流程</a></li>
+                    <li><a href="#section3">3. 查询模式详解</a></li>
+                    <li><a href="#section4">4. 存储交互流程</a></li>
+                    <li><a href="#section5">5. 查询交互流程</a></li>
+                    <li><a href="#section6">6. 文档删除流程</a></li>
+                    <li><a href="#section7">7. 关键处理阶段说明</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Document Indexing Flow -->
+            <div class="section" id="section1">
+                <h2 class="section-title">1. 文档索引流程</h2>
+                <div class="description">
+                    <h3>流程概述</h3>
+                    <p>从文档输入到知识图谱构建的完整流程。支持多种文档格式，包括纯文本、DOCX、PDF等。通过外部解析服务（MinerU/Docling）处理复杂格式，使用VLM分析多模态内容，最终构建完整的知识图谱。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+flowchart TD
+    Start([开始: 文档输入]) --> CheckFormat{文档格式?}
+
+    CheckFormat -->|纯文本| TextProcess["文本处理"]
+    CheckFormat -->|DOCX| NativeParser["原生解析器<br/>native_parser/docx"]
+    CheckFormat -->|PDF/Office/图片| ParseRouting["解析路由<br/>parser_routing.py"]
+
+    ParseRouting --> MinerU["MinerU服务<br/>external_parser/mineru"]
+    ParseRouting --> Docling["Docling服务<br/>external_parser/docling"]
+
+    NativeParser --> ExtractContent["内容提取"]
+    MinerU --> ExtractContent
+    Docling --> ExtractContent
+
+    ExtractContent --> CheckMultimodal{包含多模态<br/>内容?}
+
+    CheckMultimodal -->|是<br/>图片/表格| VLMAnalysis["VLM多模态分析<br/>analyze_multimodal()<br/>使用VLM角色LLM"]
+    CheckMultimodal -->|否| ChunkingStage["分块阶段"]
+
+    VLMAnalysis --> ChunkingStage
+
+    ChunkingStage --> ChunkingStrategy{分块策略?}
+
+    ChunkingStrategy -->|F| TokenChunk["Token分块<br/>chunking_by_token_size"]
+    ChunkingStrategy -->|R| RecursiveChunk["递归字符分块<br/>chunking_by_recursive_character"]
+    ChunkingStrategy -->|V| SemanticChunk["语义向量分块<br/>chunking_by_semantic_vector"]
+    ChunkingStrategy -->|P| ParagraphChunk["段落语义分块<br/>chunking_by_paragraph_semantic"]
+
+    TokenChunk --> EntityExtract
+    RecursiveChunk --> EntityExtract
+    SemanticChunk --> EntityExtract
+    ParagraphChunk --> EntityExtract
+
+    EntityExtract["实体提取<br/>extract_entities()<br/>operate.py<br/>使用EXTRACT角色LLM"] --> EntityProcessing["实体处理<br/>- 边界检查<br/>- 去重<br/>- 合并相似实体"]
+
+    EntityProcessing --> GenerateEmbed["生成嵌入<br/>EmbeddingFunc"]
+
+    GenerateEmbed --> UpdateVectorDB["更新向量数据库<br/>BaseVectorStorage.upsert()"]
+    GenerateEmbed --> UpdateGraphDB["更新图数据库<br/>BaseGraphStorage.upsert_node()<br/>.upsert_edge()"]
+    GenerateEmbed --> UpdateChunkDB["更新块存储<br/>BaseKVStorage.upsert()"]
+
+    UpdateVectorDB --> UpdateDocStatus
+    UpdateGraphDB --> UpdateDocStatus
+    UpdateChunkDB --> UpdateDocStatus
+
+    UpdateDocStatus["更新文档状态<br/>DocStatusStorage.set_status()"] --> CheckDone{检查完成状态}
+
+    CheckDone -->|全部块完成| IndexDone["index_done_callback()<br/>持久化操作"]
+    CheckDone -->|部分完成| WaitForChunks["等待其他块"]
+
+    WaitForChunks --> CheckDone
+
+    IndexDone --> EndIndex([索引完成])
+
+    TextProcess --> ChunkingStage
+
+    classDef startEndClass fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10
+    classDef processClass fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    classDef decisionClass fill:#fff9c4,stroke:#f57f17,stroke-width:2px,rx:5,ry:5
+    classDef llmClass fill:#d1c4e9,stroke:#4527a0,stroke-width:2px
+
+    class Start,EndIndex startEndClass
+    class TextProcess,NativeParser,ParseRouting,MinerU,Docling,ExtractContent,VLMAnalysis,ChunkingStage,TokenChunk,RecursiveChunk,SemanticChunk,ParagraphChunk,EntityExtract,EntityProcessing,GenerateEmbed,UpdateVectorDB,UpdateGraphDB,UpdateChunkDB,UpdateDocStatus,IndexDone,WaitForChunks processClass
+    class CheckFormat,CheckMultimodal,ChunkingStrategy,CheckDone decisionClass
+    class VLMAnalysis,EntityExtract llmClass
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 2: Query Flow -->
+            <div class="section" id="section2">
+                <h2 class="section-title">2. 查询流程</h2>
+                <div class="description">
+                    <h3>流程概述</h3>
+                    <p>从用户查询到返回结果的完整流程。支持6种查询模式（naive、local、global、hybrid、mix、bypass），通过关键词提取、向量检索、图遍历等步骤获取相关上下文，最终使用LLM生成回答。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+flowchart TD
+    QueryStart([开始: 用户查询]) --> QueryAPI["API入口<br/>/query 或 /query/stream"]
+
+    QueryAPI --> ParseQueryParams["解析查询参数<br/>QueryParam<br/>- mode: 查询模式<br/>- only_need_context<br/>- only_need_prompt<br/>- stream: 是否流式"]
+
+    ParseQueryParams --> QueryMode{查询模式?}
+
+    QueryMode -->|naive| NaivePath["简单向量检索<br/>naive_query()"]
+    QueryMode -->|local| LocalPath["局部检索<br/>kg_query(mode='local')"]
+    QueryMode -->|global| GlobalPath["全局检索<br/>kg_query(mode='global')"]
+    QueryMode -->|hybrid| HybridPath["混合检索<br/>kg_query(mode='hybrid')"]
+    QueryMode -->|mix| MixPath["混合模式<br/>kg_query(mode='mix')"]
+    QueryMode -->|bypass| BypassPath["绕过检索<br/>直接生成"]
+
+    NaivePath --> BuildContext
+    LocalPath --> KeywordExtraction
+    GlobalPath --> KeywordExtraction
+    HybridPath --> KeywordExtraction
+    MixPath --> KeywordExtraction
+    BypassPath --> BuildPrompt
+
+    KeywordExtraction["关键词提取<br/>get_keywords_from_query()<br/>使用KEYWORDS角色LLM<br/>HL: 高层关键词<br/>LL: 低层关键词"] --> BuildContext
+
+    BuildContext["构建查询上下文<br/>_build_query_context()"]
+
+    BuildContext --> NaiveRetrieval{检索类型?}
+
+    NaiveRetrieval -->|naive| ChunkVector["块向量检索<br/>chunks_vdb.query()"]
+    NaiveRetrieval -->|local| EntityVector["实体向量检索<br/>entities_vdb.query()"]
+    NaiveRetrieval -->|global| RelationVector["关系向量检索<br/>relationships_vdb.query()"]
+    NaiveRetrieval -->|hybrid/mix| HybridVector["混合向量检索<br/>entities + relations"]
+
+    ChunkVector --> SelectChunks
+    EntityVector --> SelectChunks
+    RelationVector --> SelectChunks
+    HybridVector --> SelectChunks
+
+    SelectChunks["选择相关块<br/>根据权重/相似度"] --> CheckMixMode{是否mix模式?}
+
+    CheckMixMode -->|是| AddChunkVector["添加块向量检索<br/>chunks_vdb.query()"]
+    CheckMixMode -->|否| CheckRerank
+    AddChunkVector --> CheckRerank
+
+    CheckRerank{启用Rerank?} -->|是| RerankChunks["Rerank块<br/>rerank_chunks()<br/>重新排序"]
+    CheckRerank -->|否| BuildPrompt
+    RerankChunks --> BuildPrompt
+
+    BuildPrompt["构建提示词<br/>_parse_global_options<br/>包含实体、关系、<br/>块上下文"] --> CheckOutput{输出类型?}
+
+    CheckOutput -->|only_need_context| ReturnContext([返回上下文])
+    CheckOutput -->|only_need_prompt| ReturnPrompt([返回提示词])
+    CheckOutput -->|stream| StreamLLM["流式LLM生成<br/>使用QUERY角色LLM"]
+    CheckOutput -->|默认| NormalLLM["正常LLM生成<br/>使用QUERY角色LLM"]
+
+    StreamLLM --> StreamResponse([流式响应])
+    NormalLLM --> BuildResult["构建结果<br/>QueryResult"]
+
+    BuildResult --> AddReferences{包含引用?}
+
+    AddReferences -->|是| WithRefs["添加引用列表<br/>reference_list"]
+    AddReferences -->|否| FinalResult
+
+    WithRefs --> FinalResult
+    ReturnContext --> FinalResult
+    ReturnPrompt --> FinalResult
+    StreamResponse --> FinalResult
+
+    FinalResult([返回查询结果])
+
+    classDef startEndClass fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10
+    classDef processClass fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    classDef decisionClass fill:#fff9c4,stroke:#f57f17,stroke-width:2px,rx:5,ry:5
+    classDef llmClass fill:#d1c4e9,stroke:#4527a0,stroke-width:2px
+
+    class QueryStart,FinalResult,ReturnContext,ReturnPrompt,StreamResponse startEndClass
+    class QueryAPI,ParseQueryParams,NaivePath,LocalPath,GlobalPath,HybridPath,MixPath,BypassPath,KeywordExtraction,BuildContext,ChunkVector,EntityVector,RelationVector,HybridVector,SelectChunks,AddChunkVector,RerankChunks,BuildPrompt,StreamLLM,NormalLLM,BuildResult,WithRefs processClass
+    class QueryMode,NaiveRetrieval,CheckMixMode,CheckRerank,CheckOutput,AddReferences decisionClass
+    class KeywordExtraction,StreamLLM,NormalLLM llmClass
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 3: Query Modes -->
+            <div class="section" id="section3">
+                <h2 class="section-title">3. 查询模式详解</h2>
+                <div class="description">
+                    <h3>模式对比</h3>
+                    <p>LightRAG 提供6种查询模式，每种模式针对不同的查询场景优化。选择合适的模式可以显著提高查询质量和响应速度。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+graph TB
+    Query["用户查询"] --> ModeSelection{选择查询模式}
+
+    ModeSelection --> M1["naive<br/>纯向量检索"]
+    ModeSelection --> M2["local<br/>局部检索"]
+    ModeSelection --> M3["global<br/>全局检索"]
+    ModeSelection --> M4["hybrid<br/>混合检索"]
+    ModeSelection --> M5["mix<br/>混合+向量"]
+
+    M1 --> D1["检索: 文档块向量<br/>适用: 简单问答"]
+    M2 --> D2["检索: 实体向量 + 1-hop邻居<br/>适用: 实体相关问题"]
+    M3 --> D3["检索: 关系向量 + 实体<br/>适用: 全局关系问题"]
+    M4 --> D4["检索: 实体 + 关系向量<br/>适用: 复杂推理"]
+    M5 --> D5["检索: 实体 + 关系 + 块向量<br/>适用: 全面检索"]
+
+    classDef modeClass fill:#e1bee7,stroke:#4a148c,stroke-width:2px
+    classDef descClass fill:#c5cae9,stroke:#1a237e,stroke-width:2px
+
+    class M1,M2,M3,M4,M5 modeClass
+    class D1,D2,D3,D4,D5 descClass
+</pre>
+                </div>
+                <table class="mode-table">
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>检索对象</th>
+                            <th>适用场景</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag tag-naive">naive</span></td>
+                            <td>文档块向量</td>
+                            <td>简单问答、事实性查询</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-local">local</span></td>
+                            <td>实体向量 + 1-hop邻居</td>
+                            <td>实体相关问题、局部关系查询</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-global">global</span></td>
+                            <td>关系向量 + 实体</td>
+                            <td>全局关系问题、跨实体推理</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-hybrid">hybrid</span></td>
+                            <td>实体 + 关系向量</td>
+                            <td>复杂推理、需要局部和全局信息</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-mix">mix</span></td>
+                            <td>实体 + 关系 + 块向量</td>
+                            <td>全面检索、最详细的上下文</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-bypass">bypass</span></td>
+                            <td>无检索</td>
+                            <td>直接对话、不依赖知识库</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="color: #333; margin: 30px 0 15px 0;">核心区别</h3>
+                <table class="mode-table">
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>检索对象</th>
+                            <th>关键词类型</th>
+                            <th>搜索策略</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag tag-naive">naive</span></td>
+                            <td>chunks_vdb</td>
+                            <td>无</td>
+                            <td>纯向量检索文档块</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-local">local</span></td>
+                            <td>entities_vdb</td>
+                            <td>LL (低层)</td>
+                            <td>搜索实体 → 找相关关系</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-global">global</span></td>
+                            <td>relationships_vdb</td>
+                            <td>HL (高层)</td>
+                            <td>搜索关系 → 找相关实体</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-hybrid">hybrid</span></td>
+                            <td>entities + relationships_vdb</td>
+                            <td>LL + HL</td>
+                            <td>local + global 合并</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag-mix">mix</span></td>
+                            <td>entities + relationships + chunks_vdb</td>
+                            <td>LL + HL</td>
+                            <td>hybrid + 向量块检索</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="color: #333; margin: 30px 0 15px 0;">详细说明</h3>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4a148c;">
+                    <h4 style="color: #4a148c; margin-bottom: 10px;">naive (简单向量检索)</h4>
+                    <p style="color: #333; line-height: 1.6;">直接对用户查询进行向量检索，在 chunks_vdb 中搜索最相似的文档块。不使用知识图谱，是最简单的检索方式。</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #1a237e;">
+                    <h4 style="color: #1a237e; margin-bottom: 10px;">local (局部检索 - 实体中心)</h4>
+                    <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>流程：</strong></p>
+                    <ol style="color: #333; line-height: 1.8; margin-left: 20px;">
+                        <li>提取 LL (Low-Level) 关键词</li>
+                        <li>在 entities_vdb 中搜索相似实体</li>
+                        <li>获取找到的实体的 1-hop 邻居关系</li>
+                        <li>返回实体 + 相关关系</li>
+                    </ol>
+                    <p style="color: #333; line-height: 1.6; margin-top: 10px;"><strong>适用：</strong>"这个实体是什么？"、"X有什么属性？"等实体相关问题</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #0d47a1;">
+                    <h4 style="color: #0d47a1; margin-bottom: 10px;">global (全局检索 - 关系中心)</h4>
+                    <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>流程：</strong></p>
+                    <ol style="color: #333; line-height: 1.8; margin-left: 20px;">
+                        <li>提取 HL (High-Level) 关键词</li>
+                        <li>在 relationships_vdb 中搜索相似关系</li>
+                        <li>获取关系两端的实体</li>
+                        <li>返回关系 + 相关实体</li>
+                    </ol>
+                    <p style="color: #333; line-height: 1.6; margin-top: 10px;"><strong>适用：</strong>"X和Y什么关系？"、"A如何影响B？"等关系/推理问题</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #004d40;">
+                    <h4 style="color: #004d40; margin-bottom: 10px;">hybrid (混合检索)</h4>
+                    <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>流程：</strong></p>
+                    <ol style="color: #333; line-height: 1.8; margin-left: 20px;">
+                        <li>同时提取 LL 和 HL 关键词</li>
+                        <li>并行执行 local 和 global 分支</li>
+                        <li>使用 Round-robin 策略合并结果</li>
+                    </ol>
+                    <p style="color: #333; line-height: 1.6; margin-top: 10px;"><strong>适用：</strong>复杂推理，需要同时关注实体和关系</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #bf360c;">
+                    <h4 style="color: #bf360c; margin-bottom: 10px;">mix (混合+向量)</h4>
+                    <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>流程：</strong></p>
+                    <ol style="color: #333; line-height: 1.8; margin-left: 20px;">
+                        <li>执行 hybrid 检索（实体 + 关系）</li>
+                        <li>额外进行 chunks_vdb 向量检索</li>
+                        <li>返回最全面的结果</li>
+                    </ol>
+                    <p style="color: #333; line-height: 1.6; margin-top: 10px;"><strong>适用：</strong>最全面检索，默认推荐模式</p>
+                </div>
+
+                <div class="diagram-container">
+<pre class="mermaid">
+graph TB
+    subgraph "naive 模式"
+        N1[用户查询] --> N2[chunks_vdb.query]
+        N2 --> N3[返回文档块]
+    end
+
+    subgraph "local 模式"
+        L1[用户查询] --> L2[提取 LL 关键词]
+        L2 --> L3[entities_vdb.query]
+        L3 --> L4[找到相似实体]
+        L4 --> L5[获取 1-hop 邻居关系]
+        L5 --> L6[返回实体 + 关系]
+    end
+
+    subgraph "global 模式"
+        G1[用户查询] --> G2[提取 HL 关键词]
+        G2 --> G3[relationships_vdb.query]
+        G3 --> G4[找到相似关系]
+        G4 --> G5[获取关系两端实体]
+        G5 --> G6[返回关系 + 实体]
+    end
+
+    subgraph "hybrid 模式"
+        H1[用户查询] --> H2[提取 LL + HL 关键词]
+        H2 --> H3[并行: local 分支]
+        H2 --> H4[并行: global 分支]
+        H3 --> H5[Round-robin 合并]
+        H4 --> H5
+    end
+
+    subgraph "mix 模式"
+        M1[用户查询] --> M2[hybrid 检索]
+        M2 --> M3[chunks_vdb.query]
+        M3 --> M4[返回最全面结果]
+    end
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 4: Storage Interaction -->
+            <div class="section" id="section4">
+                <h2 class="section-title">4. 存储交互流程</h2>
+                <div class="description">
+                    <h3>时序说明</h3>
+                    <p>展示文档索引过程中各组件之间的交互顺序，包括API、核心逻辑、处理管道、实体提取、LLM服务和各种存储后端之间的协作关系。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+sequenceDiagram
+    participant User as 用户
+    participant API as FastAPI
+    participant Core as LightRAG
+    participant Pipeline as 处理管道
+    participant Extract as 实体提取
+    participant LLM as LLM服务
+    participant Embed as 嵌入服务
+    participant KV as KV存储
+    participant VDB as 向量存储
+    participant GDB as 图存储
+
+    User->>API: 上传文档
+    API->>Core: ainsert()
+    Core->>Pipeline: 解析文档
+
+    Pipeline->>Extract: 发送文本块
+    Extract->>LLM: 提取实体和关系
+    LLM-->>Extract: 返回实体/关系
+
+    Extract->>Embed: 生成嵌入
+    Embed-->>Extract: 返回向量
+
+    Extract->>KV: 保存块数据
+    Extract->>VDB: 保存实体/关系向量
+    Extract->>GDB: 保存图节点和边
+
+    GDB->>KV: 保存图快照
+
+    Core-->>API: 处理完成
+    API-->>User: 返回结果
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 5: Query Interaction -->
+            <div class="section" id="section5">
+                <h2 class="section-title">5. 查询交互流程</h2>
+                <div class="description">
+                    <h3>时序说明</h3>
+                    <p>展示查询处理过程中各组件之间的交互顺序。不同查询模式（naive vs local/global/hybrid）会有不同的检索路径。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+sequenceDiagram
+    participant User as 用户
+    participant API as FastAPI
+    participant Core as LightRAG
+    participant Keys as 关键词提取
+    participant VDB as 向量存储
+    participant GDB as 图存储
+    participant Build as 上下文构建
+    participant LLM as LLM服务
+
+    User->>API: 发送查询
+    API->>Core: aquery()
+
+    alt local/global/hybrid模式
+        Core->>Keys: 提取关键词
+        Keys->>LLM: HL/LL关键词提取
+        LLM-->>Keys: 返回关键词
+
+        Core->>VDB: 向量检索
+        VDB-->>Core: 返回相关实体/关系
+
+        Core->>GDB: 获取子图
+        GDB-->>Core: 返回图数据
+    else naive模式
+        Core->>VDB: 块向量检索
+        VDB-->>Core: 返回相关块
+    end
+
+    Core->>Build: 构建提示词上下文
+    Build-->>Core: 返回格式化上下文
+
+    Core->>LLM: 生成回答
+    LLM-->>Core: 返回响应
+
+    Core-->>API: 返回结果
+    API-->>User: 返回回答
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 6: Document Deletion -->
+            <div class="section" id="section6">
+                <h2 class="section-title">6. 文档删除流程</h2>
+                <div class="description">
+                    <h3>流程概述</h3>
+                    <p>删除文档时需要智能处理实体和关系：如果实体仅被该文档引用则完全删除，如果被多个文档引用则仅移除该文档的引用。删除后可选择重建知识图谱以保持数据一致性。</p>
+                </div>
+                <div class="diagram-container">
+<pre class="mermaid">
+flowchart TD
+    Start([开始: 删除文档]) --> GetDocID["获取文档ID"]
+
+    GetDocID --> GetStatus["获取文档状态<br/>DocStatusStorage.get()"]
+
+    GetStatus --> CheckStatus{文档状态?}
+
+    CheckStatus -->|已索引| GetChunks["获取文档关联的所有块<br/>从chunks KV存储"]
+    CheckStatus -->|处理中/失败| DeleteStatus["直接删除状态记录"]
+
+    GetChunks --> GetEntityIDs["获取块关联的实体ID"]
+
+    GetEntityIDs --> GetEntitySources["获取每个实体的source_ids"]
+
+    GetEntitySources --> CheckOtherDocs{实体被其他<br/>文档引用?}
+
+    CheckOtherDocs -->|是| RemoveDocRef["从source_ids移除当前文档"]
+    CheckOtherDocs -->|否| MarkDelete["标记实体待删除"]
+
+    RemoveDocRef --> CheckNextEntity
+    MarkDelete --> CheckNextEntity
+
+    CheckNextEntity{还有实体?} -->|是| GetEntitySources
+    CheckNextEntity -->|否| DeleteMarked["删除标记的实体<br/>从向量存储和图存储"]
+
+    DeleteMarked --> Regraph["重新构建知识图谱<br/>rebuild_knowledge_from_chunks()"]
+
+    Regraph --> DeleteStatus["删除文档状态记录"]
+
+    DeleteStatus --> End([完成])
+
+    classDef startEndClass fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10
+    classDef processClass fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    classDef decisionClass fill:#fff9c4,stroke:#f57f17,stroke-width:2px,rx:5,ry:5
+
+    class Start,End startEndClass
+    class GetDocID,GetStatus,GetChunks,GetEntityIDs,GetEntitySources,RemoveDocRef,MarkDelete,DeleteMarked,Regraph,DeleteStatus processClass
+    class CheckStatus,CheckOtherDocs,CheckNextEntity decisionClass
+</pre>
+                </div>
+            </div>
+
+            <!-- Section 7: Key Processing Stages -->
+            <div class="section" id="section7">
+                <h2 class="section-title">7. 关键处理阶段说明</h2>
+
+                <h3 style="color: #333; margin: 20px 0 10px 0;">索引流程关键点</h3>
+                <table class="role-table">
+                    <thead>
+                        <tr>
+                            <th>阶段</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>文档解析</strong></td>
+                            <td>支持原生解析(DOCX)和外部服务解析(MinerU/Docling)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>多模态处理</strong></td>
+                            <td>VLM分析图片、表格等非文本内容</td>
+                        </tr>
+                        <tr>
+                            <td><strong>分块策略</strong></td>
+                            <td>四种策略可选，适应不同文档类型</td>
+                        </tr>
+                        <tr>
+                            <td><strong>实体提取</strong></td>
+                            <td>LLM提取实体和关系，构建知识图谱</td>
+                        </tr>
+                        <tr>
+                            <td><strong>并行处理</strong></td>
+                            <td>支持多块并行处理，提高效率</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="color: #333; margin: 30px 0 10px 0;">查询流程关键点</h3>
+                <table class="role-table">
+                    <thead>
+                        <tr>
+                            <th>阶段</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>查询模式</strong></td>
+                            <td>六种模式适应不同查询需求</td>
+                        </tr>
+                        <tr>
+                            <td><strong>关键词提取</strong></td>
+                            <td>分为高层(HL)和低层(LL)关键词</td>
+                        </tr>
+                        <tr>
+                            <td><strong>向量检索</strong></td>
+                            <td>基于嵌入相似度检索相关内容</td>
+                        </tr>
+                        <tr>
+                            <td><strong>图遍历</strong></td>
+                            <td>获取相关实体的邻居信息</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rerank</strong></td>
+                            <td>可选的重排序提高检索精度</td>
+                        </tr>
+                        <tr>
+                            <td><strong>上下文构建</strong></td>
+                            <td>整合检索结果构建完整上下文</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LLM生成</strong></td>
+                            <td>基于上下文生成最终回答</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="color: #333; margin: 30px 0 10px 0;">LLM 角色配置</h3>
+                <table class="mode-table">
+                    <thead>
+                        <tr>
+                            <th>角色</th>
+                            <th>用途</th>
+                            <th>配置参数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>EXTRACT</strong></td>
+                            <td>实体和关系提取</td>
+                            <td>EXTRACT_MODEL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QUERY</strong></td>
+                            <td>查询响应生成</td>
+                            <td>QUERY_MODEL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>KEYWORDS</strong></td>
+                            <td>关键词提取</td>
+                            <td>KEYWORDS_MODEL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>VLM</strong></td>
+                            <td>多模态内容分析</td>
+                            <td>VLM_MODEL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>LightRAG 流程图文档 | 基于知识图谱的检索增强生成框架</p>
+            <p style="margin-top: 10px;">生成时间: <script>document.write(new Date().toLocaleDateString('zh-CN'));</script></p>
+        </div>
+    </div>
+</body>
+</html>

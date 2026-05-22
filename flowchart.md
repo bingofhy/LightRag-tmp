@@ -190,6 +190,136 @@ graph TB
     class D1,D2,D3,D4,D5 descClass
 ```
 
+### 核心区别
+
+| 模式 | 检索对象 | 关键词类型 | 搜索策略 |
+|-----|---------|-----------|---------|
+| **naive** | chunks_vdb | 无 | 纯向量检索文档块 |
+| **local** | entities_vdb | LL (低层) | 搜索实体 → 找相关关系 |
+| **global** | relationships_vdb | HL (高层) | 搜索关系 → 找相关实体 |
+| **hybrid** | entities + relationships_vdb | LL + HL | local + global 合并 |
+| **mix** | entities + relationships + chunks_vdb | LL + HL | hybrid + 向量块检索 |
+
+### 详细说明
+
+#### naive (简单向量检索)
+```
+用户查询 → chunks_vdb.query() → 返回文档块
+```
+直接对用户查询进行向量检索，在 chunks_vdb 中搜索最相似的文档块。不使用知识图谱，是最简单的检索方式。
+
+**适用：** 简单问答、事实性查询
+
+---
+
+#### local (局部检索 - 实体中心)
+```
+用户查询
+    ↓
+提取 LL (Low-Level) 关键词
+    ↓
+entities_vdb.query() → 找到相似实体
+    ↓
+获取 1-hop 邻居关系
+    ↓
+返回实体 + 相关关系
+```
+
+**适用：** "这个实体是什么？"、"X有什么属性？"等实体相关问题
+
+---
+
+#### global (全局检索 - 关系中心)
+```
+用户查询
+    ↓
+提取 HL (High-Level) 关键词
+    ↓
+relationships_vdb.query() → 找到相似关系
+    ↓
+获取关系两端的实体
+    ↓
+返回关系 + 相关实体
+```
+
+**适用：** "X和Y什么关系？"、"A如何影响B？"等关系/推理问题
+
+---
+
+#### hybrid (混合检索)
+```
+用户查询
+    ↓
+提取 LL + HL 关键词
+    ↓
+┌─────────────────────┐
+│  并行执行:          │
+│  - local 分支       │
+│  - global 分支      │
+└─────────────────────┘
+    ↓
+Round-robin 合并结果
+```
+
+**适用：** 复杂推理，需要同时关注实体和关系
+
+---
+
+#### mix (混合+向量)
+```
+用户查询
+    ↓
+hybrid 检索 (实体 + 关系)
+    ↓
++ chunks_vdb.query()
+    ↓
+返回最全面的结果
+```
+
+**适用：** 最全面检索，默认推荐模式
+
+---
+
+### 各模式流程对比
+
+```mermaid
+graph TB
+    subgraph "naive 模式"
+        N1[用户查询] --> N2[chunks_vdb.query]
+        N2 --> N3[返回文档块]
+    end
+
+    subgraph "local 模式"
+        L1[用户查询] --> L2[提取 LL 关键词]
+        L2 --> L3[entities_vdb.query]
+        L3 --> L4[找到相似实体]
+        L4 --> L5[获取 1-hop 邻居关系]
+        L5 --> L6[返回实体 + 关系]
+    end
+
+    subgraph "global 模式"
+        G1[用户查询] --> G2[提取 HL 关键词]
+        G2 --> G3[relationships_vdb.query]
+        G3 --> G4[找到相似关系]
+        G4 --> G5[获取关系两端实体]
+        G5 --> G6[返回关系 + 实体]
+    end
+
+    subgraph "hybrid 模式"
+        H1[用户查询] --> H2[提取 LL + HL 关键词]
+        H2 --> H3[并行: local 分支]
+        H2 --> H4[并行: global 分支]
+        H3 --> H5[Round-robin 合并]
+        H4 --> H5
+    end
+
+    subgraph "mix 模式"
+        M1[用户查询] --> M2[hybrid 检索]
+        M2 --> M3[chunks_vdb.query]
+        M3 --> M4[返回最全面结果]
+    end
+```
+
 ---
 
 ## 4. 存储交互流程
