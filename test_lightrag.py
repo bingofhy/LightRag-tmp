@@ -33,7 +33,7 @@ PDF_FILE = "./test.pdf"  # 修改为你的 PDF 文件路径
 # ============================================================
 
 # -------- LLM 配置 (修改这里切换不同的 LLM) --------
-LLM_API_KEY = os.environ.get("LLM_API_KEY", "sk-cp-xDKdnb4S4UZlFFcuS_PFkY1ck1jYgqUWoaOnz84qdDbY1Fm_C2UGc--vMnLGAXB7D2NMpDSAZnHRrnDW85rb7jUpQiD3a2vRGqS61wyAohQMC8DdlhtQfGQ")
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_BASE_URL = "https://api.minimax.chat/v1"  # API 端点
 LLM_MODEL = "MiniMax-M2.5"                     # 模型名称
 
