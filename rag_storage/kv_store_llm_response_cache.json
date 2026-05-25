@@ -58,5 +58,401 @@
     "create_time": 1779417078,
     "update_time": 1779417078,
     "_id": "naive:query:c2d197fb09dc38201297e737a69bd154"
+  },
+  "global:keywords:eb15c002b5d1872d41b9e97b4bbfaf8e": {
+    "return": "{\"high_level_keywords\": [\"\\u6587\\u6863\\u5185\\u5bb9\", \"\\u4e3b\\u8981\\u5185\\u5bb9\"], \"low_level_keywords\": []}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "这个文档的主要内容是什么？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676104,
+    "update_time": 1779676104,
+    "_id": "global:keywords:eb15c002b5d1872d41b9e97b4bbfaf8e"
+  },
+  "global:query:37fb4dd6c59373a167a60ab159e454ac": {
+    "return": "这份文档主要介绍了小米公司的发展历程、业务模式以及未来战略。以下是文档内容的概述：\n\n1. **创立与初心**：小米公司成立于2010年，由雷军等七位联合创始人共同创立。小米最初开发了基于安卓深度定制的操作系统MIUI，并通过论坛与用户互动，迅速积累了第一批“发烧友”。\n\n2. **高速发展与“小米模式”成型**：2012年，小米完成B轮融资，估值达40亿美元。小米手机销量迅速增长，2013年推出红米手机，推动了中国智能手机的普及。小米探索出独特的商业模式“铁人三项”：硬件+新零售+互联网服务。\n\n3. **触底反弹与高端化突围**：2015-2016年，小米面临挑战，但通过强化供应链管理和拓展线下渠道，成功逆转局面。2018年，小米在香港交易所主板上市。\n\n4. **上市与组织升级**：上市后，小米加速推进高端化战略，实施“手机+AIoT”双引擎战略。2020年，小米推出小米10系列，成功冲击4000元以上价位，标志着高端化战略取得实质性突破。\n\n5. **造车：人生最后一次创业**：2021年，小米宣布进军智能电动汽车行业，计划10年内投资100亿美元。2024年3月，首款车型小米SU7正式发布，成为公司第三大增长曲线。\n\n6. **业务版图与全球影响力**：小米的业务已覆盖全球100多个国家和地区，主要业务板块包括智能手机、AIoT及生活消费产品、互联网服务、智能电动汽车等。\n\n7. **总结**：小米是一家以硬件为基础、以互联网服务为利润来源、以生态链为护城河的科技企业。其核心优势包括高运营效率、庞大的活跃用户基础以及强大的生态链整合能力。\n\n这份文档全面展示了小米公司从创立到现在的成长历程，以及其独特的商业模式和未来战略方向。",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "这个文档的主要内容是什么？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "文档内容, 主要内容",
+      "ll_keywords": "",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676124,
+    "update_time": 1779676124,
+    "_id": "global:query:37fb4dd6c59373a167a60ab159e454ac"
+  },
+  "hybrid:keywords:6e43426725fe3ce29a07f4376438f094": {
+    "return": "{\"high_level_keywords\": [\"\\u6587\\u6863\\u5185\\u5bb9\"], \"low_level_keywords\": []}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "这个文档的主要内容是什么？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676126,
+    "update_time": 1779676126,
+    "_id": "hybrid:keywords:6e43426725fe3ce29a07f4376438f094"
+  },
+  "hybrid:query:13cea5de4294e6c4c635b345dcbeeafb": {
+    "return": "这份文档主要介绍了小米公司的发展历程、业务布局和未来战略。以下是文档的主要内容概述：\n\n1. **创立与初心**：小米公司于2010年4月6日正式成立，由雷军等七位联合创始人共同创立，总部位于北京。小米最初并非直接制造硬件，而是开发了基于安卓深度定制的操作系统MIUI，通过论坛与极客用户互动，迅速积累了第一批“发烧友”。\n\n2. **高速发展与“小米模式”成型**：2012年，小米完成B轮融资，估值达40亿美元。此后，小米手机销量迅速增长，2014年成为全球第三大智能手机制造商。小米探索出独特的“铁人三项”商业模式：硬件+新零售+互联网服务，并开始布局生态链，投资和孵化智能硬件企业。\n\n3. **触底反弹与高端化突围**：2015-2016年，小米面临挑战，手机出货量下滑。为应对困境，小米进行两项关键变革：加强供应链管理和拓展线下渠道小米之家。2017年，小米成功逆转，重回全球前五，营收突破千亿元。\n\n4. **上市与组织升级**：2018年7月9日，小米在香港交易所主板上市。上市后，小米加速推进高端化战略，实施“手机+AIoT”双引擎战略，并推出小米10系列，成功冲击4000元以上价位。\n\n5. **造车：人生最后一次创业**：2021年3月30日，小米宣布正式进军智能电动汽车行业。小米计划10年内投资100亿美元，自建工厂、自研核心三电和自动驾驶技术。2024年3月，首款车型小米SU7正式发布。\n\n6. **业务版图与全球影响力**：小米的业务已覆盖全球100多个国家和地区，拥有数亿月活用户。主要业务板块包括智能手机、AIoT及生活消费产品、互联网服务、智能电动汽车等。\n\n7. **总结**：小米是一家以硬件为基础、以互联网服务为利润来源、以生态链为护城河的科技企业。它的核心优势包括极高的运营效率、庞大的活跃用户基础和强大的生态链整合能力。未来，小米将继续拓展“人-车-家”生态，迈向全球化科技生态公司。",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "这个文档的主要内容是什么？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "文档内容",
+      "ll_keywords": "",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676149,
+    "update_time": 1779676149,
+    "_id": "hybrid:query:13cea5de4294e6c4c635b345dcbeeafb"
+  },
+  "naive:query:e07e0e06762c305d1db87ef2e6ee893d": {
+    "return": "小米公司开始造车是在2021年。具体来说，2021年3月30日，小米宣布正式进军智能电动汽车行业。雷军在发布会上表示：“这将是人生最后一次创业，我愿意押上全部声誉。”小米计划在10年内投资100亿美元，首期100亿元人民币，并成立全资子公司，由雷军亲自担任CEO。\n\n### References\n\n- [1] 小米公司：从“为发烧而生”到全球科技生态引领者\n- [2] 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "naive",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676718,
+    "update_time": 1779676718,
+    "_id": "naive:query:e07e0e06762c305d1db87ef2e6ee893d"
+  },
+  "local:keywords:987f179993da0609404acc691895f0e6": {
+    "return": "{\"high_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\", \"\\u9020\\u8f66\\u5386\\u53f2\"], \"low_level_keywords\": [\"\\u5c0f\\u7c73\\u6c7d\\u8f66\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "local",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676721,
+    "update_time": 1779676721,
+    "_id": "local:keywords:987f179993da0609404acc691895f0e6"
+  },
+  "local:query:f26f01281a024b21a744d749d80a01b6": {
+    "return": "小米公司开始造车是在2021年。根据提供的知识图谱数据，2021年3月30日，小米宣布正式进军智能电动汽车行业。雷军在发布会上表示：“这将是我人生最后一次创业，我愿意押上全部声誉。”小米计划在10年内投资100亿美元，首期100亿元人民币，并成立全资子公司，由雷军亲自担任CEO。\n\n### References\n\n- [1] 小米公司：从“为发烧而生”到全球科技生态引领者\n- [2] 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "local",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "小米公司, 造车历史",
+      "ll_keywords": "小米汽车",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676729,
+    "update_time": 1779676729,
+    "_id": "local:query:f26f01281a024b21a744d749d80a01b6"
+  },
+  "global:keywords:dfdc9353cdc44bd95006dd3bc46ed0b0": {
+    "return": "{\"high_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\", \"\\u9020\\u8f66\", \"\\u4f01\\u4e1a\\u8fdb\\u5165\\u6c7d\\u8f66\\u884c\\u4e1a\"], \"low_level_keywords\": [\"\\u6c7d\\u8f66\\u5236\\u9020\\u65f6\\u95f4\", \"\\u884c\\u4e1a\\u52a8\\u6001\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676733,
+    "update_time": 1779676733,
+    "_id": "global:keywords:dfdc9353cdc44bd95006dd3bc46ed0b0"
+  },
+  "global:query:142cdcf8011928c4fc269193a57a9b3d": {
+    "return": "小米公司于2021年开始造车。这一决策是在2021年3月30日宣布的，标志着小米正式进军智能电动汽车行业。雷军在发布会上表示：“这将是我人生最后一次创业，我愿意押上全部声誉。”小米计划在10年内投资100亿美元，用于智能电动汽车业务，并成立全资子公司，由雷军亲自担任CEO。\n\n### References\n\n- [1] 小米公司：从“为发烧而生”到全球科技生态引领者\n- [2] 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "小米公司, 造车, 企业进入汽车行业",
+      "ll_keywords": "汽车制造时间, 行业动态",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676739,
+    "update_time": 1779676739,
+    "_id": "global:query:142cdcf8011928c4fc269193a57a9b3d"
+  },
+  "hybrid:keywords:3c5d3aae8d26430b535ec6bc4acd1e51": {
+    "return": "{\"high_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\", \"\\u9020\\u8f66\\u5386\\u53f2\"], \"low_level_keywords\": [\"\\u5c0f\\u7c73\\u6c7d\\u8f66\", \"\\u9020\\u8f66\\u65f6\\u95f4\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676742,
+    "update_time": 1779676742,
+    "_id": "hybrid:keywords:3c5d3aae8d26430b535ec6bc4acd1e51"
+  },
+  "hybrid:query:b2428d6566e433c03c37986714f32fb7": {
+    "return": "小米公司开始造车是在2021年。根据提供的知识图谱数据，2021年3月30日，小米宣布正式进军智能电动汽车行业，这标志着小米开始涉足汽车制造领域。\n\n### References\n\n- [1] 小米公司. (2021). 小米公司：从“为发烧而生”到全球科技生态引领者. [Online]. Retrieved from [link to the document].\n- [2] 小米公司. (2020). 路由器、扫地机器人等智能设备。2020 年，小米推出小米 10 系列，成功冲击 4000 元以上价位，标志着高端化战略取得实质性突破。同年，小米全球智能手机出货量重返前三。 [Online]. Retrieved from [link to the document].",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年开始造车？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "小米公司, 造车历史",
+      "ll_keywords": "小米汽车, 造车时间",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779676749,
+    "update_time": 1779676749,
+    "_id": "hybrid:query:b2428d6566e433c03c37986714f32fb7"
+  },
+  "naive:query:3ad361d46e3f98a53d3ad74ac3fb59b2": {
+    "return": "小米公司正式成立于**2010年**。根据相关记录，具体的成立日期为2010年4月6日。\n\n当时，雷军联合林斌、黎万强等七位联合创始人共同创立了这家公司，并将总部设在北京。在创立初期，小米并没有直接着手制造硬件，而是优先开发了基于安卓深度定制的操作系统——MIUI，通过论坛与极客用户进行互动，从而积累了最初的“发烧友”用户群。\n\n### References\n\n- [1] 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "naive",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677186,
+    "update_time": 1779677186,
+    "_id": "naive:query:3ad361d46e3f98a53d3ad74ac3fb59b2"
+  },
+  "local:keywords:feaa986e2498c596985a443f49c8bcd3": {
+    "return": "{\"high_level_keywords\": [\"\\u6210\\u7acb\\u5e74\\u4efd\", \"\\u516c\\u53f8\\u5386\\u53f2\"], \"low_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "local",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677211,
+    "update_time": 1779677211,
+    "_id": "local:keywords:feaa986e2498c596985a443f49c8bcd3"
+  },
+  "local:query:7f13eddd658d7a66143d83dce9b2f274": {
+    "return": "小米公司成立于**2010年4月6日**。\n\n该公司由雷军联合林斌、黎万强等七位联合创始人共同创立，总部位于北京。在成立之初，小米并未直接制造硬件，而是先开发了基于安卓深度定制的操作系统MIUI，通过论坛与极客用户互动积累了第一批用户。\n\n### References",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "local",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "成立年份, 公司历史",
+      "ll_keywords": "小米公司",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677288,
+    "update_time": 1779677288,
+    "_id": "local:query:7f13eddd658d7a66143d83dce9b2f274"
+  },
+  "global:keywords:4f350cf151010bee1102403a4b09fd24": {
+    "return": "{\"high_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\", \"\\u6210\\u7acb\\u65f6\\u95f4\"], \"low_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677461,
+    "update_time": 1779677461,
+    "_id": "global:keywords:4f350cf151010bee1102403a4b09fd24"
+  },
+  "global:query:ab49c525fb8467a6e2214b2a43362003": {
+    "return": "小米公司成立于2010年4月6日。\n\n### References\n\n- [1] 小米公司：从“为发烧而生”到全球科技生态引领者\n- [2] 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "global",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "小米公司, 成立时间",
+      "ll_keywords": "小米公司",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677465,
+    "update_time": 1779677465,
+    "_id": "global:query:ab49c525fb8467a6e2214b2a43362003"
+  },
+  "hybrid:keywords:c09a2ae75b446ddc7f09e09ab350846d": {
+    "return": "{\"high_level_keywords\": [\"\\u5c0f\\u7c73\\u516c\\u53f8\", \"\\u6210\\u7acb\\u65f6\\u95f4\"], \"low_level_keywords\": [\"\\u5c0f\\u7c73\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677467,
+    "update_time": 1779677467,
+    "_id": "hybrid:keywords:c09a2ae75b446ddc7f09e09ab350846d"
+  },
+  "hybrid:query:27fae824e2220b200673841349f8d05d": {
+    "return": "小米公司成立于2010年4月6日。\n\n### References\n\n- [1] 小米公司\n- [2] 七位联合创始人\n- [3] 小米公司\n- [4] 小米手机1\n- [5] 小米SU7",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司哪一年成立的？",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "hl_keywords": "小米公司, 成立时间",
+      "ll_keywords": "小米",
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677472,
+    "update_time": 1779677472,
+    "_id": "hybrid:query:27fae824e2220b200673841349f8d05d"
+  },
+  "naive:query:2aba90c8f3b6ad8a4f7561ed2ea41f26": {
+    "return": "<think>用户询问\"小米公司ceo是谁？\"\n\n让我分析这个问题：\n\n从提供的上下文来看，有以下相关信息：\n\n1. 文档提到：\"2021 年 3 月 30日，小米的布正式进军智能电动汽车行业...小米计划10年内投资100亿美元，首期100亿元人民币，并成立全资子公司，由雷军亲自担任CEO。\"\n\n此外，文档还提到：\n- 小米公司由雷军联合林斌、黎万强等七位联合创始人于2010年创立\n- 2016年由雷军亲自接管手机研发和供应链\n\n这表明雷军是小米的CEO。\n\n但是，我需要注意一个重要问题：用户提供的是中文文档，要求我用中文回答，而且文档中没有提供reference_id。这意味着文档没有被正确标记引用ID。\n\n等等，让我再看一下格式。用户提供的Document Chunks中没有\"reference_id\"字段，是空的。而Reference Document List中也是空的。\n\n根据指令，我需要：\n1. 使用Markdown格式\n2. 用与用户查询相同的语言（中文）回答\n3. 生成References部分，最多5个最相关的引用\n\n但问题是，这里的文档没有正确的reference_id。我应该如何处理这种情况？\n\n我可能需要指出这个问题，或者尝试从现有信息回答。\n\n\n虽然缺乏明确的参考 ID，但文档清楚地表明雷军是小米的首席执行官。信息明确且直接，不需要额外的解释或推测。</think>\n\n# 小米公司 CEO\n\n根据提供的上下文，小米公司的 CEO 是**雷军**。\n\n具体而言，文档记载：\n\n1. **2021 年 3 月 30 日**，小米宣布正式进军智能电动汽车行业，成立了全资子公司，**由雷军亲自担任 CEO**。彼时雷军在发布会上表示：\"这将是我人生最后一次创业，我愿意押上全部声誉。\"\n\n2. 雷军不仅是小米公司的 CEO，也是小米的创始人之一。他于 2010 年 4 月 6 日联合林斌、黎万强等七位联合创始人共同创立了小米公司。\n\n3. 在 2016 年小米遭遇供应链危机时，**雷军亲自接管手机研发和供应链**，展现了其对公司运营的直接参与和领导。\n\n因此，**雷军目前担任小米公司的 CEO**。\n\n---\n\n### 参考\n\n- 小米公司：从“为发烧而生”到全球科技生态引领者",
+    "cache_type": "query",
+    "chunk_id": null,
+    "original_prompt": "小米公司ceo 是谁？",
+    "queryparam": {
+      "mode": "naive",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 40,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": true
+    },
+    "create_time": 1779677540,
+    "update_time": 1779677540,
+    "_id": "naive:query:2aba90c8f3b6ad8a4f7561ed2ea41f26"
   }
 }

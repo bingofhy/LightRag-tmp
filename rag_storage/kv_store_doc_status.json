@@ -16,5 +16,175 @@
       "processing_start_time": 1779417027,
       "processing_end_time": 1779417070
     }
+  },
+  "dup-05ae6e619f47e75b69d4be13ac348415": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:19:05.255135+00:00",
+    "updated_at": "2026-05-25T02:19:05.255140+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_101905_669fef0f",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-9c1c80a2b5d5ba938d0fa0422151bbee": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:28:20.590823+00:00",
+    "updated_at": "2026-05-25T02:28:20.590827+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_102820_c205c82e",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-042241405ed7c024930f7062c1afaac3": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:38:31.313234+00:00",
+    "updated_at": "2026-05-25T02:38:31.313240+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_103831_9a2250ca",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-83cb612dc0633ea5aa3c50574d33dc02": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:42:44.567784+00:00",
+    "updated_at": "2026-05-25T02:42:44.567789+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_104244_ed7b7fa1",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-3d77d96b18bd809588ca79b246a43154": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:45:21.567943+00:00",
+    "updated_at": "2026-05-25T02:45:21.567949+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_104521_45f042bb",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-5a3107486c1572c9153969a4311c6843": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:50:59.152209+00:00",
+    "updated_at": "2026-05-25T02:50:59.152213+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_105059_75c6c7ef",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-c739bae9b33985e12590f2741e2d2838": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:51:54.197412+00:00",
+    "updated_at": "2026-05-25T02:51:54.197417+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_105154_6cbea792",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-c4fdc36224aa24fd67203a053e5eaa70": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T02:52:15.128458+00:00",
+    "updated_at": "2026-05-25T02:52:15.128464+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_105215_68e26198",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-01ec09ad39e03c60800ca8b242272732": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T03:08:40.638166+00:00",
+    "updated_at": "2026-05-25T03:08:40.638171+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_110840_81da509e",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
+  },
+  "dup-1529bbdaeb1c6fd4d131187ca944ee1c": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-a32cd7fcba97a0c8f7db488475d3299a",
+    "content_length": 2723,
+    "chunks_count": 0,
+    "chunks_list": [],
+    "created_at": "2026-05-25T03:11:56.503241+00:00",
+    "updated_at": "2026-05-25T03:11:56.503247+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260525_111156_3ecced88",
+    "error_msg": "Content already exists. Original doc_id: doc-a32cd7fcba97a0c8f7db488475d3299a, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-a32cd7fcba97a0c8f7db488475d3299a",
+      "original_track_id": "insert_20260522_103027_a7904695"
+    }
   }
 }

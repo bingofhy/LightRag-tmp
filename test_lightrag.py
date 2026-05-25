@@ -167,7 +167,7 @@ def main():
     print("PDF inserted successfully!")
 
     # 测试问答
-    query = "这个文档的主要内容是什么？"  # 修改你的问题
+    query = "小米公司ceo 是谁？"  # 修改你的问题
 
     print("\n" + "="*50)
     print("Naive Search:")
