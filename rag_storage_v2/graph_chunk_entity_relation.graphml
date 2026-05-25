@@ -1,0 +1,988 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d13" for="edge" attr.name="truncate" attr.type="string"/>
+<key id="d12" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d11" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d10" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d9" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d8" for="edge" attr.name="description" attr.type="string"/>
+<key id="d7" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d6" for="node" attr.name="truncate" attr.type="string"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="小米">
+  <data key="d0">小米</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米是一家集硬件制造、互联网服务和生态链整合于一体的科技企业，业务覆盖智能手机、智能家居、智能电动汽车等多个领域。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696103</data>
+  <data key="d6"></data>
+</node>
+<node id="小米10系列">
+  <data key="d0">小米10系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米10系列是2020年推出的一款高端智能手机系列，成功打入4000元以上价位，标志着小米高端化战略的实质性突破。&lt;SEP&gt;小米10系列是小米2020年推出的高端手机系列，成功冲击4000元以上价位。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696103</data>
+  <data key="d6"></data>
+</node>
+<node id="雷军">
+  <data key="d0">雷军</data>
+  <data key="d1">person</data>
+  <data key="d2">雷军是小米的创始人兼CEO，在2021年宣布进军智能电动汽车行业，并表示这将是其人生最后一次创业。&lt;SEP&gt;雷军是小米公司的创始人兼CEO，带领小米从初创发展为生态科技企业，曾亲自接管手机研发和供应链管理。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米SU7">
+  <data key="d0">小米SU7</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米SU7是小米于2024年3月发布的首款智能电动车型，凭借出色设计和深度生态整合成为现象级产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="澎泿OS">
+  <data key="d0">澎泿OS</data>
+  <data key="d1">content</data>
+  <data key="d2">澎泿OS是小米于2023年推出的统一操作系统，用于取代原先的MIUI，作为连接手机、智能家居、汽车等所有设备的底层系统。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="MIUI">
+  <data key="d0">MIUI</data>
+  <data key="d1">content</data>
+  <data key="d2">MIUI是小米原有的操作系统，后被澎泿OS取代，作为小米设备的用户界面系统。&lt;SEP&gt;MIUI是小米基于安卓深度定制的操作系统，通过论坛与极客用户互动开发，奠定了小米的粉丝文化基础。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="AIoT">
+  <data key="d0">AIoT</data>
+  <data key="d1">concept</data>
+  <data key="d2">AIoT是人工智能物联网概念，小米通过AIoT平台连接智能电视、手环、手表、耳机、空气净化器、扫地机器人等智能设备。&lt;SEP&gt;AIoT是人工智能物联网，是小米的双引擎战略之一，通过小爱同学连接智能设备。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能家居">
+  <data key="d0">智能家居</data>
+  <data key="d1">concept</data>
+  <data key="d2">智能家居是小米"人-车-家全生态"战略中的家庭中心，包括智能电视、扫地机器人、路由器等家用智能设备。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能手机">
+  <data key="d0">智能手机</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能手机是小米核心业务，全球出货量重返前三，产品线涵盖小米数字系列、MIX系列、Civi系列和红米系列。&lt;SEP&gt;智能手机是小米公司的核心产品类别，包括小米和红米系列。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc&lt;SEP&gt;chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米数字系列">
+  <data key="d0">小米数字系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米数字系列是小米的高端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="MIX系列">
+  <data key="d0">MIX系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">MIX系列是小米的高端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="Civi系列">
+  <data key="d0">Civi系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">Civi系列是小米的中端智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="红米系列">
+  <data key="d0">红米系列</data>
+  <data key="d1">artifact</data>
+  <data key="d2">红米系列是小米主打极致性价比的智能手机产品线。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能电视">
+  <data key="d0">智能电视</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能电视是小米的AIoT产品线之一，在中国市场排名第一。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能手环">
+  <data key="d0">智能手环</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能手环是小米的可穿戴智能设备产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能手表">
+  <data key="d0">智能手表</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能手表是小米的可穿戴智能设备产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="耳机">
+  <data key="d0">耳机</data>
+  <data key="d1">artifact</data>
+  <data key="d2">耳机是小米的AIoT音频设备产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="空气净化器">
+  <data key="d0">空气净化器</data>
+  <data key="d1">artifact</data>
+  <data key="d2">空气净化器是小米的智能家居环境产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="扫地机器人">
+  <data key="d0">扫地机器人</data>
+  <data key="d1">artifact</data>
+  <data key="d2">扫地机器人是小米的智能家居清洁设备，属于AIoT及生活消费产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="路由器">
+  <data key="d0">路由器</data>
+  <data key="d1">artifact</data>
+  <data key="d2">路由器是小米的智能家居网络设备，是AIoT生态中的重要组成部分。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小爱同学">
+  <data key="d0">小爱同学</data>
+  <data key="d1">content</data>
+  <data key="d2">小爱同学是小米的人工智能语音助手，用于构建用户粘性。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米有品电商平台">
+  <data key="d0">小米有品电商平台</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米有品是小米的电商平台，提供小米生态链产品。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="应用商店">
+  <data key="d0">应用商店</data>
+  <data key="d1">organization</data>
+  <data key="d2">应用商店是小米的互联网服务平台之一。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="游戏联运">
+  <data key="d0">游戏联运</data>
+  <data key="d1">method</data>
+  <data key="d2">游戏联运是小米的互联网服务业务之一。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="人-车-家全生态">
+  <data key="d0">人-车-家全生态</data>
+  <data key="d1">concept</data>
+  <data key="d2">人-车-家全生态是小米的核心战略，将手机作为移动中心、智能家居作为家庭中心、汽车作为出行中心，三者通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="三电技术">
+  <data key="d0">三电技术</data>
+  <data key="d1">concept</data>
+  <data key="d2">三电技术是指电池、电机、电控三大核心技术，是小米智能电动汽车的自研重点。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="自动驾驶技术">
+  <data key="d0">自动驾驶技术</data>
+  <data key="d1">concept</data>
+  <data key="d2">自动驾驶技术是小米智能电动汽车的核心技术之一，采取自研模式。</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米公司">
+  <data key="d0">小米公司</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米公司是一家成立于2010年的中国科技企业，由雷军等人创立，从智能手机起步发展为全球科技生态企业。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="林斌">
+  <data key="d0">林斌</data>
+  <data key="d1">person</data>
+  <data key="d2">林斌是小米公司的联合创始人之一，参与了公司的创立。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="黎万强">
+  <data key="d0">黎万强</data>
+  <data key="d1">person</data>
+  <data key="d2">黎万强是小米公司的联合创始人之一，参与了公司的创立。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="北京">
+  <data key="d0">北京</data>
+  <data key="d1">location</data>
+  <data key="d2">北京是小米的总部所在地。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米手机1">
+  <data key="d0">小米手机1</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米手机1是小米2011年8月发布的首款智能手机，以1999元定价和旗舰配置颠覆了行业定价规则。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="高通">
+  <data key="d0">高通</data>
+  <data key="d1">organization</data>
+  <data key="d2">&gt;&gt;高通是芯片供应商，为小米手机提供处理器。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="红米手机">
+  <data key="d0">红米手机</data>
+  <data key="d1">artifact</data>
+  <data key="d2">红米手机是小米2013年推出的性价比机型，以799元价格推动了中国智能手机的普及。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="铁人三项">
+  <data key="d0">铁人三项</data>
+  <data key="d1">concept</data>
+  <data key="d2">铁人三项是小米的商业模式，包括硬件、新零售和互联网服务三个核心组成部分。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="新零售">
+  <data key="d0">新零售</data>
+  <data key="d1">concept</data>
+  <data key="d2">新零售是小米结合线上线下的零售模式，通过小米之家等渠道销售产品。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="互联网服务">
+  <data key="d0">互联网服务</data>
+  <data key="d1">concept</data>
+  <data key="d2">互联网服务包括MIUI系统广告、应用商店、云服务、游戏等，是小米的长期利润来源。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="紫米">
+  <data key="d0">紫米</data>
+  <data key="d1">organization</data>
+  <data key="d2">紫米是小米生态链企业，主要生产移动电源。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="华米">
+  <data key="d0">华米</data>
+  <data key="d1">organization</data>
+  <data key="d2">华米是小米生态链企业，主要生产手环。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智米">
+  <data key="d0">智米</data>
+  <data key="d1">organization</data>
+  <data key="d2">智米是小米生态链企业，主要生产空气净化器。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="消费级物联网平台">
+  <data key="d0">消费级物联网平台</data>
+  <data key="d1">concept</data>
+  <data key="d2">消费级物联网平台是小米生态链在2017年建成的全球最大消费级IoT平台。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="OPPO">
+  <data key="d0">OPPO</data>
+  <data key="d1">organization</data>
+  <data key="d2">OPPO是竞争对手，凭借线下门店扩张对小米的渠道优势构成挑战。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="vivo">
+  <data key="d0">vivo</data>
+  <data key="d1">organization</data>
+  <data key="d2">vivo是竞争对手，凭借线下门店扩张对小米的渠道优势构成挑战。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="王翔">
+  <data key="d0">王翔</data>
+  <data key="d1">person</data>
+  <data key="d2">王翔是小米高管，曾任高通全球副总，后加入小米强化供应链管理。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米之家">
+  <data key="d0">小米之家</data>
+  <data key="d1">location</data>
+  <data key="d2">小米之家是小米的线下零售门店，采用高频带低频策略销售生态链产品和手机。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="香港交易所">
+  <data key="d0">香港交易所</data>
+  <data key="d1">location</data>
+  <data key="d2">香港交易所是小米2018年7月上市交易的证券交易平台。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="七位联合创始人">
+  <data key="d0">七位联合创始人</data>
+  <data key="d1">person</data>
+  <data key="d2">七位联合创始人是指包括雷军、林斌、黎万强在内的七位小米公司创立者。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="发烧友">
+  <data key="d0">发烧友</data>
+  <data key="d1">person</data>
+  <data key="d2">发烧友指最早参与MIUI开发并支持小米的极客用户群体，代表小米的核心粉丝基础。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="中国智能手机市场">
+  <data key="d0">中国智能手机市场</data>
+  <data key="d1">location</data>
+  <data key="d2">中国智能手机市场是小米手机销售的主要市场，2014年小米出货量登顶该市场第一。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="全球第三">
+  <data key="d0">全球第三</data>
+  <data key="d1">concept</data>
+  <data key="d2">全球第三指小米2014年智能手机出货量在全球市场的排名位置。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="纯线上电商模式">
+  <data key="d0">纯线上电商模式</data>
+  <data key="d1">method</data>
+  <data key="d2">纯线上电商模式是小米手机的销售渠道，通过纯线上方式销售产品。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米手机5">
+  <data key="d0">小米手机5</data>
+  <data key="d1">artifact</data>
+  <data key="d2">小米手机5是小米手机型号，曾因骁龙820芯片延迟上市而遭遇供应链危机。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米生态系统">
+  <data key="d0">小米生态系统</data>
+  <data key="d1">concept</data>
+  <data key="d2">小米生态系统是小米通过生态链计划建立的智能硬件生态体系，包括众多被投企业和智能设备。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="智能电动汽车">
+  <data key="d0">智能电动汽车</data>
+  <data key="d1">artifact</data>
+  <data key="d2">智能电动汽车是小米2021年宣布进军的智能电动车业务，属于小米的最新发展战略。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f&lt;SEP&gt;chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="小米生态链企业">
+  <data key="d0">小米生态链企业</data>
+  <data key="d1">organization</data>
+  <data key="d2">小米生态链企业是被小米投资和孵化的智能硬件企业，如紫米、华米、智米等。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="高通双核处理器">
+  <data key="d0">高通双核处理器</data>
+  <data key="d1">artifact</data>
+  <data key="d2">高通双核处理器是小米手机1搭载的旗舰级处理芯片。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="1GB运行内存">
+  <data key="d0">1GB运行内存</data>
+  <data key="d1">data</data>
+  <data key="d2">1GB运行内存是小米手机1的配置参数，属于当时的旗舰级别内存容量。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="1999元">
+  <data key="d0">1999元</data>
+  <data key="d1">data</data>
+  <data key="d2">1999元是小米手机1的发布定价，直接颠覆了当时智能手机行业的定价规则。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="799元">
+  <data key="d0">799元</data>
+  <data key="d1">data</data>
+  <data key="d2">799元是红米手机的发布定价，以极致性价比推动了中国智能手机的普及。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="450亿美元">
+  <data key="d0">450亿美元</data>
+  <data key="d1">data</data>
+  <data key="d2">450亿美元是小米2014年的公司估值，成为当时全球估值最高的未上市科技公司。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="6112万台">
+  <data key="d0">6112万台</data>
+  <data key="d1">data</data>
+  <data key="d2">6112万台是小米2014年的智能手机出货量，使其登顶中国智能手机市场第一。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="1000亿元">
+  <data key="d0">1000亿元</data>
+  <data key="d1">data</data>
+  <data key="d2">1000亿元是小米2017年的营收突破金额，标志其经营规模达到新高度。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="4000元以上">
+  <data key="d0">4000元以上</data>
+  <data key="d1">data</data>
+  <data key="d2">4000元以上是小米10系列的定价区间，代表其高端化战略成功。</data>
+  <data key="d3">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<node id="手机">
+  <data key="d0">手机</data>
+  <data key="d3">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d2">手机作为移动中心与智能家居通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d1">UNKNOWN</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1779696104</data>
+  <data key="d6"></data>
+</node>
+<edge source="小米" target="小米10系列">
+  <data key="d7">1.0</data>
+  <data key="d8">小米推出小米10系列，成功打入4000元以上价位，标志着高端化战略取得实质性突破。</data>
+  <data key="d9">产品发布,高端化突破</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="智能电动汽车">
+  <data key="d7">1.0</data>
+  <data key="d8">小米采用自建工厂、自研核心三电和自动驾驶技术的模式，而非代工模式。</data>
+  <data key="d9">研发投入,自主生产</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="小米SU7">
+  <data key="d7">1.0</data>
+  <data key="d8">小米于2024年3月发布首款车型小米SU7，截至2025年已成为公司第三大增长曲线。</data>
+  <data key="d9">产品发布,市场成功</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="澎泿OS">
+  <data key="d7">1.0</data>
+  <data key="d8">小米推出澎泿OS操作系统，取代原先的MIUI，作为统一所有设备的底层系统。</data>
+  <data key="d9">系统替代,统一生态</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="路由器">
+  <data key="d7">1.0</data>
+  <data key="d8">路由器是小米的AIoT及生活消费产品之一。</data>
+  <data key="d9">AIoT产品,智能家居</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米" target="扫地机器人">
+  <data key="d7">1.0</data>
+  <data key="d8">扫地机器人是小米的AIoT及生活消费产品之一。</data>
+  <data key="d9">AIoT产品,智能家居</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米10系列" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米推出小米10系列实现高端化战略突破。</data>
+  <data key="d9">战略突破,高端产品</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="雷军" target="智能电动汽车">
+  <data key="d7">1.0</data>
+  <data key="d8">雷军在2021年3月30日宣布进军智能电动汽车行业，并担任CEO。</data>
+  <data key="d9">创业投资,战略决策</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="雷军" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">雷军是小米公司的主要创始人并担任CEO，领导公司发展。</data>
+  <data key="d9">创始人,组织领导</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MIUI" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司先开发了MIUI操作系统，奠定了粉丝文化基础。</data>
+  <data key="d9">产品开发,系统构建</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MIUI" target="发烧友">
+  <data key="d7">1.0</data>
+  <data key="d8">MIUI通过论坛与发烧友用户互动，奠定了粉丝文化基础。</data>
+  <data key="d9">用户互动,社区开发</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="AIoT" target="小米公司">
+  <data key="d7">1.0</data>
+  <data key="d8">小米实施手机加AIoT双引擎战略。</data>
+  <data key="d9">双引擎战略,智能生态</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智能家居" target="手机">
+  <data key="d7">1.0</data>
+  <data key="d8">手机作为移动中心与智能家居通过统一账号和操作系统实现无缝协同。</data>
+  <data key="d9">无缝协同,移动中心</data>
+  <data key="d10">chunk-fdb937e9e57716d51ecc291d0e052dfc</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="林斌">
+  <data key="d7">1.0</data>
+  <data key="d8">林斌作为联合创始人参与小米公司的创立。</data>
+  <data key="d9">合作创业,联合创始</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="黎万强">
+  <data key="d7">1.0</data>
+  <data key="d8">黎万强作为联合创始人参与小米公司的创立。</data>
+  <data key="d9">合作创业,联合创始</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="北京">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司总部位于北京。</data>
+  <data key="d9">企业所在地,总部位置</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米手机1">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司发布首款智能手机，以1999元定价颠覆行业。</data>
+  <data key="d9">产品发布,颠覆市场</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="红米手机">
+  <data key="d7">1.0</data>
+  <data key="d8">小米推出红米手机推动了智能手机普及。</data>
+  <data key="d9">产品线的拓展,市场普及</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="铁人三项">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司形成了硬件加新零售加互联网服务的商业模式。</data>
+  <data key="d9">商业模式,核心战略</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="紫米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米投资孵化紫米生产移动电源。</data>
+  <data key="d9">产业孵化,生态链投资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="华米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米投资孵化华米生产手环。</data>
+  <data key="d9">产业孵化,生态链投资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="智米">
+  <data key="d7">1.0</data>
+  <data key="d8">小米投资孵化智米生产空气净化器。</data>
+  <data key="d9">产业孵化,生态链投资</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="OPPO">
+  <data key="d7">1.0</data>
+  <data key="d8">OPPO通过线下门店对小米的渠道优势构成挑战。</data>
+  <data key="d9">商业挑战,市场竞争</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="vivo">
+  <data key="d7">1.0</data>
+  <data key="d8">vivo通过线下门店对小米的渠道优势构成挑战。</data>
+  <data key="d9">商业挑战,市场竞争</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="王翔">
+  <data key="d7">1.0</data>
+  <data key="d8">小米任命王翔强化供应链管理。</data>
+  <data key="d9">供应链管理,高管任命</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米之家">
+  <data key="d7">1.0</data>
+  <data key="d8">小米开设小米之家拓展线下渠道。</data>
+  <data key="d9">渠道建设,零售拓展</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="香港交易所">
+  <data key="d7">1.0</data>
+  <data key="d8">小米在香港交易所主板上市。</data>
+  <data key="d9">上市地点,证券交易</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="高通">
+  <data key="d7">1.0</data>
+  <data key="d8">高通为小米提供手机处理器芯片。</data>
+  <data key="d9">合作伙伴,芯片供应</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="七位联合创始人">
+  <data key="d7">1.0</data>
+  <data key="d8">小米公司由雷军联合林斌、黎万强等七位联合创始人共同创立。</data>
+  <data key="d9">创始团队,组织创建</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="中国智能手机市场">
+  <data key="d7">1.0</data>
+  <data key="d8">小米2014年以6112万台出货量登顶中国智能手机市场第一。</data>
+  <data key="d9">市场地位,销售成就</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="全球第三">
+  <data key="d7">1.0</data>
+  <data key="d8">小米2014年智能手机出货量全球第三。</data>
+  <data key="d9">全球排名,市场地位</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="450亿美元">
+  <data key="d7">1.0</data>
+  <data key="d8">小米2014年估值达到450亿美元，成为全球估值最高的未上市科技公司。</data>
+  <data key="d9">公司估值,市场认可</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="纯线上电商模式">
+  <data key="d7">1.0</data>
+  <data key="d8">小米通过纯线上电商模式销售手机，彻底颠覆行业定价规则。</data>
+  <data key="d9">商业创新,销售渠道</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米手机5">
+  <data key="d7">1.0</data>
+  <data key="d8">小米手机5因芯片延迟遭遇供应链危机。</data>
+  <data key="d9">产品发布,供应链挑战</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="智能电动汽车">
+  <data key="d7">1.0</data>
+  <data key="d8">小米2021年宣布进军智能电动汽车业务。</data>
+  <data key="d9">业务跨界,战略扩张</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米公司" target="小米生态系统">
+  <data key="d7">1.0</data>
+  <data key="d8">小米通过生态链计划建立小米生态系统。</data>
+  <data key="d9">平台建设,生态布局</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米手机1" target="高通">
+  <data key="d7">1.0</data>
+  <data key="d8">小米手机1搭载高通双核处理器。</data>
+  <data key="d9">硬件配置,芯片供应</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="小米手机1" target="1999元">
+  <data key="d7">1.0</data>
+  <data key="d8">小米手机1以1999元定价颠覆行业。</data>
+  <data key="d9">产品定价,价格策略</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="红米手机" target="799元">
+  <data key="d7">1.0</data>
+  <data key="d8">红米手机以799元定价推动智能手机普及。</data>
+  <data key="d9">产品定价,市场定位</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="铁人三项" target="新零售">
+  <data key="d7">1.0</data>
+  <data key="d8">新零售是铁人三项的组成部分，包括小米之家等渠道。</data>
+  <data key="d9">商业模式组件,渠道创新</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="铁人三项" target="互联网服务">
+  <data key="d7">1.0</data>
+  <data key="d8">互联网服务是铁人三项的组成部分，提供长期利润。</data>
+  <data key="d9">利润来源,商业模式组件</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="紫米" target="消费级物联网平台">
+  <data key="d7">1.0</data>
+  <data key="d8">紫米作为生态链企业成为消费级物联网平台的一部分。</data>
+  <data key="d9">IoT平台组成,生态链产品</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="华米" target="消费级物联网平台">
+  <data key="d7">1.0</data>
+  <data key="d8">华米作为生态链企业成为消费级物联网平台的一部分。</data>
+  <data key="d9">IoT平台组成,生态链产品</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+<edge source="智米" target="消费级物联网平台">
+  <data key="d7">1.0</data>
+  <data key="d8">智米作为生态链企业成为消费级物联网平台的一部分。</data>
+  <data key="d9">IoT平台组成,生态链产品</data>
+  <data key="d10">chunk-3d53115d4331a6108b6e778bee3c915f</data>
+  <data key="d11">unknown_source</data>
+  <data key="d12">1779696104</data>
+  <data key="d13"></data>
+</edge>
+</graph></graphml>
