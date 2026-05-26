@@ -5,7 +5,11 @@
       "Bash(.venv/Scripts/pip show *)",
       "Bash(.venv/Scripts/python *)",
       "Bash(.venv/Scripts/pip list *)",
-      "Bash(.venv/Scripts/pip install *)"
+      "Bash(.venv/Scripts/pip install *)",
+      "Bash(.venv/Scripts/pip.exe list *)",
+      "Bash(.venv/bin/pip list *)",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"from lightrag import LightRAG; import inspect; print\\(inspect.signature\\(LightRAG.__init__\\)\\)\")"
     ]
   }
 }

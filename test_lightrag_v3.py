@@ -42,12 +42,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-logger.info(f"日志文件: {LOG_FILE}")
+logger.info(f"Log file: {LOG_FILE}")
 
 nest_asyncio.apply()
 
 WORKING_DIR = "./rag_storage_v3"
-PDF_FILE = "./test.pdf"  # 修改为你的 PDF 文件路径
+PDF_INPUT_DIR = "./pdf_file_input"  # PDF 文件目录
 
 
 # ============================================================
@@ -69,16 +69,16 @@ EMBEDDING_DIM = int(os.environ.get("EMBEDDING_DIM", "1536"))  # 根据模型调�
 # ==================== 验证配置 ====================
 if not LLM_API_KEY or LLM_API_KEY == "your-api-key-here":
     raise ValueError(
-        "请设置 LLM_API_KEY！\n"
-        "可以通过环境变量设置: export LLM_API_KEY='your-key'\n"
-        "或直接修改脚本中的 LLM_API_KEY 变量"
+        "Please set LLM_API_KEY!\n"
+        "Set via env: export LLM_API_KEY='your-key'\n"
+        "Or modify the LLM_API_KEY variable directly"
     )
 
 if not EMBEDDING_API_KEY:
     raise ValueError(
-        "请设置 EMBEDDING_API_KEY！\n"
-        "可以通过环境变量设置: export EMBEDDING_API_KEY='your-key'\n"
-        "或直接修改脚本中的 EMBEDDING_API_KEY 变量"
+        "Please set EMBEDDING_API_KEY!\n"
+        "Set via env: export EMBEDDING_API_KEY='your-key'\n"
+        "Or modify the EMBEDDING_API_KEY variable directly"
     )
 
 if not os.path.exists(WORKING_DIR):
@@ -105,7 +105,7 @@ async def llm_model_func(prompt, system_prompt=None, history_messages=[], **kwar
     model_name=EMBEDDING_MODEL,
 )
 async def embedding_func(texts: list[str]) -> "np.ndarray":
-    """使用 OpenAI 兼容 API 生成 embedding"""
+    """Generate embeddings using OpenAI compatible API"""
     return await openai_embed(
         texts=texts,
         model=EMBEDDING_MODEL,
@@ -114,30 +114,55 @@ async def embedding_func(texts: list[str]) -> "np.ndarray":
     )
 
 
-# ==================== 文档提取函数 (从 LightRAG 导入) ====================
-from lightrag.api.routers.document_routes import (
-    _extract_pdf_pypdf,
-)
+# ==================== 文档提取函数 (使用 pypdf) ====================
+from pypdf import PdfReader
 
 
 def extract_pdf_content(file_path: str | Path, password: str = None) -> str:
     """
-    提取 PDF 内容 - 使用 LightRAG 内部的 pypdf 方法
+    Extract PDF content using pypdf
 
     Args:
-        file_path: PDF 文件路径
-        password: 可选的 PDF 密码（用于加密 PDF）
+        file_path: PDF file path
+        password: Optional password for encrypted PDF
 
     Returns:
-        str: 提取的文本内容
-
-    Raises:
-        Exception: PDF 加密且密码错误或未提供密码
+        str: Extracted text content
     """
-    with open(file_path, "rb") as f:
-        file_bytes = f.read()
+    reader = PdfReader(file_path, password=password)
 
-    return _extract_pdf_pypdf(file_bytes, password)
+    text_parts = []
+    for page in reader.pages:
+        text_parts.append(page.extract_text())
+
+    return "\n".join(text_parts)
+
+
+def process_pdf_directory(pdf_dir: str) -> list[tuple[str, str]]:
+    """
+    Process all PDF files in directory
+
+    Args:
+        pdf_dir: PDF directory path
+
+    Returns:
+        list[tuple[str, str]]: (filename, content) list
+    """
+    pdf_path = Path(pdf_dir)
+    if not pdf_path.exists():
+        raise FileNotFoundError(f"PDF directory not found: {pdf_dir}")
+
+    pdf_files = list(pdf_path.glob("*.pdf"))
+    if not pdf_files:
+        raise FileNotFoundError(f"No PDF files in: {pdf_dir}")
+
+    results = []
+    for pdf_file in pdf_files:
+        content = extract_pdf_content(pdf_file)
+        results.append((pdf_file.name, content))
+        logger.info(f"  Read: {pdf_file.name} ({len(content)} chars)")
+
+    return results
 
 
 # ==================== 初始化 RAG ====================
@@ -148,7 +173,7 @@ async def initialize_rag():
         embedding_func=embedding_func,
         llm_model_name=LLM_MODEL,
         addon_params={
-            "language": "Chinese"  # 指定使用中文提取实体
+            "language": "Chinese"
         },
     )
 
@@ -158,13 +183,6 @@ async def initialize_rag():
 
 # ==================== 主程序 ====================
 def main():
-    # 验证 PDF 文件
-    if not os.path.exists(PDF_FILE):
-        raise FileNotFoundError(
-            f"'{PDF_FILE}' not found. "
-            f"Please put your PDF file in the current directory."
-        )
-
     logger.info(f"Initializing LightRAG...")
     logger.info(f"  LLM: {LLM_MODEL} @ {LLM_BASE_URL}")
     logger.info(f"  Embedding: {EMBEDDING_MODEL} @ {EMBEDDING_BASE_URL}")
@@ -173,16 +191,19 @@ def main():
 
     rag = asyncio.run(initialize_rag())
 
-    # 插入 PDF - 使用 LightRAG 内部方法提取
+    # Process PDFs from directory
     logger.info('+'*50)
-    logger.info(f"Processing PDF: {PDF_FILE}")
+    logger.info(f"Reading PDFs from: {PDF_INPUT_DIR}")
 
-    # 使用封装的 PDF 提取函数
-    text_content = extract_pdf_content(PDF_FILE)
+    pdf_docs = process_pdf_directory(PDF_INPUT_DIR)
+    logger.info(f"Found {len(pdf_docs)} PDF files")
 
-    logger.info(f"Extracted {len(text_content)} characters from PDF")
-    rag.insert(text_content)
-    logger.info("PDF inserted successfully!")
+    for filename, content in pdf_docs:
+        logger.info(f"Inserting: {filename}...")
+        rag.insert(content)
+        logger.info(f"  Done: {filename}")
+
+    logger.info(f"All PDFs inserted successfully!")
 
     # 测试问答
     query = "小米公司什么时候开始造车的？"  # 修改你的问题
