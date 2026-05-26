@@ -23,6 +23,7 @@ from dotenv import load_dotenv
 from lightrag import LightRAG, QueryParam
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import wrap_embedding_func_with_attrs
+import numpy as np
 
 # 加载 .env 配置
 load_dotenv()
@@ -56,14 +57,14 @@ PDF_INPUT_DIR = "./pdf_file_input"  # PDF 文件目录
 
 # -------- LLM 配置 (从 .env 读取) --------
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
-LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.minimax.chat/v1")
-LLM_MODEL = os.environ.get("LLM_MODEL", "MiniMax-M2.5")
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "")
+LLM_MODEL = os.environ.get("LLM_MODEL", "")
 
 # -------- Embedding 配置 (从 .env 读取) --------
 EMBEDDING_API_KEY = os.environ.get("EMBEDDING_API_KEY", "")
-EMBEDDING_BASE_URL = os.environ.get("EMBEDDING_BASE_URL", "https://api.minimax.chat/v1")
-EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "text-embedding-v3")
-EMBEDDING_DIM = int(os.environ.get("EMBEDDING_DIM", "1536"))  # 根据模型调整维度
+EMBEDDING_BASE_URL = os.environ.get("EMBEDDING_BASE_URL", "")
+EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "")
+EMBEDDING_DIM = int(os.environ.get("EMBEDDING_DIM", "1024"))  # 根据模型调整维度: jina=1024, openai-small=1536, openai-large=3072
 
 
 # ==================== 验证配置 ====================
@@ -104,9 +105,9 @@ async def llm_model_func(prompt, system_prompt=None, history_messages=[], **kwar
     max_token_size=8192,
     model_name=EMBEDDING_MODEL,
 )
-async def embedding_func(texts: list[str]) -> "np.ndarray":
+async def embedding_func(texts: list[str]) -> np.ndarray:
     """Generate embeddings using OpenAI compatible API"""
-    return await openai_embed(
+    return await openai_embed.func(
         texts=texts,
         model=EMBEDDING_MODEL,
         base_url=EMBEDDING_BASE_URL,
@@ -172,6 +173,13 @@ async def initialize_rag():
         llm_model_func=llm_model_func,
         embedding_func=embedding_func,
         llm_model_name=LLM_MODEL,
+        # Embedding 并发控制
+        embedding_batch_num=1,          # 最小批量 (默认 10)
+        embedding_func_max_async=1,     # 单线程 (默认 8)
+        # LLM 并发控制
+        llm_model_max_async=1,          # 实体提取并发 (默认 4)
+        # 插入并发控制
+        max_parallel_insert=1,          # 单线程插入 (默认 2)
         addon_params={
             "language": "Chinese"
         },

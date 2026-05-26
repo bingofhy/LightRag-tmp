@@ -388,3 +388,65 @@ graph LR
         LLM --> Result[返回结果]
     end
 ```
+
+---
+
+## 默认存储结构
+
+### Working Directory 文件组织
+
+LightRAG 默认在 `working_dir`（如 `./rag_storage_v2`）下创建以下文件：
+
+```
+working_dir/
+├── graph_chunk_entity_relation.graphml    # 知识图谱
+├── kv_store_full_docs.json                # 完整文档存储
+├── kv_store_text_chunks.json              # 文本分块存储
+├── kv_store_full_entities.json            # 实体信息存储
+├── kv_store_full_relations.json           # 关系信息存储
+├── kv_store_entity_chunks.json            # 实体相关分块存储
+├── kv_store_relation_chunks.json          # 关系相关分块存储
+├── kv_store_doc_status.json               # 文档处理状态存储
+├── kv_store_llm_response_cache.json       # LLM响应缓存
+├── vdb_chunks.json                        # 文本分块向量存储
+├── vdb_entities.json                      # 实体向量存储
+└── vdb_relationships.json                 # 关系向量存储
+```
+
+### 文件说明
+
+#### 知识图谱
+
+| 文件 | 格式 | 内容 |
+|------|------|------|
+| `graph_chunk_entity_relation.graphml` | GraphML | 节点(实体) + 边(关系)，含属性和元数据 |
+
+#### Key-Value 存储 (JsonKVStorage)
+
+| 文件 | 存储内容 |
+|------|----------|
+| `kv_store_full_docs.json` | 原始文档内容，以 doc_id 为键 |
+| `kv_store_text_chunks.json` | 文本分块，含 content、tokens、chunk_order_index |
+| `kv_store_full_entities.json` | 实体列表和元数据（count、create_time、update_time） |
+| `kv_store_full_relations.json` | 实体间关系描述 |
+| `kv_store_entity_chunks.json` | 与实体相关的文本分块映射 |
+| `kv_store_relation_chunks.json` | 与关系相关的文本分块映射 |
+| `kv_store_doc_status.json` | 文档处理状态（pending/processed/failed） |
+| `kv_store_llm_response_cache.json` | LLM 响应缓存，避免重复请求 |
+
+#### 向量存储 (NanoVectorDBStorage)
+
+| 文件 | 存储内容 |
+|------|----------|
+| `vdb_chunks.json` | 文本分块的 embedding 向量，用于语义搜索 |
+| `vdb_entities.json` | 实体的 embedding 向量，用于实体相似度检索 |
+| `vdb_relationships.json` | 关系的 embedding 向量，用于关系相似度检索 |
+
+### 默认存储后端
+
+| 存储类型 | 默认实现 | 替代方案 |
+|----------|----------|----------|
+| KV Storage | `JsonKVStorage` | Redis, PostgreSQL, MongoDB, OpenSearch |
+| Vector Storage | `NanoVectorDBStorage` | Milvus, Qdrant, Faiss, PostgreSQL, MongoDB |
+| Graph Storage | `NetworkXStorage` | Neo4j, PostgreSQL, MongoDB, Memgraph |
+| Doc Status | `JsonDocStatusStorage` | Redis, PostgreSQL, MongoDB, OpenSearch |
