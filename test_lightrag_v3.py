@@ -23,6 +23,8 @@ from dotenv import load_dotenv
 from lightrag import LightRAG, QueryParam
 from lightrag.llm.openai import openai_complete_if_cache, openai_embed
 from lightrag.utils import wrap_embedding_func_with_attrs
+from lightrag import prompt as lightrag_prompt
+from prompt_cn import PROMPTS as CN_PROMPTS
 import numpy as np
 
 # 加载 .env 配置
@@ -166,6 +168,14 @@ def process_pdf_directory(pdf_dir: str) -> list[tuple[str, str]]:
     return results
 
 
+# ==================== 使用中文 Prompts ====================
+def patch_prompts_to_cn():
+    """替换 lightrag 的原始 prompts 为中文版本"""
+    for key, value in CN_PROMPTS.items():
+        lightrag_prompt.PROMPTS[key] = value
+    logger.info("已将 LightRAG prompts 替换为中文版本")
+
+
 # ==================== 初始化 RAG ====================
 async def initialize_rag():
     rag = LightRAG(
@@ -191,6 +201,9 @@ async def initialize_rag():
 
 # ==================== 主程序 ====================
 def main():
+    # 替换为中文 prompts
+    patch_prompts_to_cn()
+
     logger.info(f"Initializing LightRAG...")
     logger.info(f"  LLM: {LLM_MODEL} @ {LLM_BASE_URL}")
     logger.info(f"  Embedding: {EMBEDDING_MODEL} @ {EMBEDDING_BASE_URL}")
