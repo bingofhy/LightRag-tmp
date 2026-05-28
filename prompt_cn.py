@@ -1,9 +1,5 @@
 from __future__ import annotations
-import os
-from pathlib import Path
-from typing import Any, Mapping, TypedDict
-
-import yaml
+from typing import Any
 
 
 PROMPTS: dict[str, Any] = {}
@@ -12,426 +8,176 @@ PROMPTS: dict[str, Any] = {}
 PROMPTS["DEFAULT_TUPLE_DELIMITER"] = "<|#|>"
 PROMPTS["DEFAULT_COMPLETION_DELIMITER"] = "<|COMPLETE|>"
 
-# 默认实体类型指导，通过 {entity_types_guidance} 注入到提取 prompt 中。
-# 用户可以通过在 addon_params 中传递 entity_types_guidance 来覆盖，
-# 或者替换 PROMPTS 中的完整 prompt 模板字符串。
-PROMPTS[
-    "default_entity_types_guidance"
-] = """使用以下类型之一对每个实体进行分类。如果没有合适的类型，请使用 `Other`。
-
-- Person：人类个体，真实或虚构的
-- Creature：非人类生物（动物、神话生物等）
-- Organization：公司、机构、政府组织、团体
-- Location：地理地点（城市、国家、建筑物、地区）
-- Event：事件、事故、仪式、会议
-- Concept：抽象概念、理论、原则、信仰
-- Method：程序、技术、算法、工作流程
-- Content：创意或信息作品（书籍、文章、电影、报告）
-- Data：定量或结构化信息（统计数据、数据集、测量值）
-- Artifact：人类创造的物理或数字对象（工具、软件、设备）
-- NaturalObject：自然非生物（矿物、天体、化合物）"""
-
 PROMPTS["entity_extraction_system_prompt"] = """---角色---
-你是一名知识图谱专家，负责从用户 prompt 的 `---输入文本---` 部分提取实体和关系。
+你是一名知识图谱专家，负责从输入文本中提取实体和关系。
 
 ---指令---
-1. **实体提取：**
-  - 识别用户 prompt 的 `---输入文本---` 部分中明确定义且有意义的实体。
-  - 对于每个实体，提取：
-    - `entity_name`：实体的名称。如果实体名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。确保在整个提取过程中保持**命名一致**。
-    - `entity_type`：使用下面 `---实体类型---` 部分提供的类型指导对实体进行分类。如果提供的实体类型都不适用，将其归类为 `Other`。
-    - `entity_description`：基于输入文本中*仅有的*信息，提供简明而全面的实体属性和活动描述。
+1.  **实体提取与输出：**
+    *   **识别：** 识别输入文本中明确定义且有意义的实体。
+    *   **实体详情：** 对于每个识别的实体，提取以下信息：
+        *   `entity_name`：实体的名称。如果实体名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。确保在整个提取过程中保持**命名一致**。
+        *   `entity_type`：使用以下类型之一对实体进行分类：`{entity_types}`。如果提供的实体类型都不适用，不要添加新的实体类型，将其归类为 `Other`。
+        *   `entity_description`：基于输入文本中*仅有的*信息，提供简明而全面的实体属性和活动描述。
+    *   **实体输出格式：** 每个实体输出共 4 个字段，用 `{tuple_delimiter}` 分隔，在一行上。第一个字段*必须*是字面量字符串 `entity`。
+        *   格式：`entity{tuple_delimiter}entity_name{tuple_delimiter}entity_type{tuple_delimiter}entity_description`
 
-2. **关系提取：**
-  - 识别之前提取的实体之间直接的、明确陈述的、有意义的关系。
-  - 如果单个语句描述了涉及两个以上实体的关系，将其分解为多个二元关系。
-  - 对于每个二元关系，提取：
-    - `source_entity`：源实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
-    - `target_entity`：目标实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
-    - `relationship_keywords`：一个或多个高级关键词，概括关系。此字段中的多个关键词必须用逗号 `,` 分隔。**请勿使用 `{tuple_delimiter}` 来分隔此字段内的多个关键词。**
-    - `relationship_description`：源实体和目标实体之间关系的简明解释。
+2.  **关系提取与输出：**
+    *   **识别：** 识别之前提取的实体之间直接的、明确陈述的、有意义的关系。
+    *   **N 元关系分解：** 如果单个语句描述了涉及两个以上实体的关系（即 N 元关系），将其分解为多个二元（两个实体）关系对进行单独描述。
+        *   **示例：** 对于 "Alice, Bob, and Carol collaborated on Project X"，提取二元关系，如 "Alice collaborated with Project X"、"Bob collaborated with Project X" 和 "Carol collaborated with Project X"，或基于最合理的二元解释提取 "Alice collaborated with Bob"。
+    *   **关系详情：** 对于每个二元关系，提取以下字段：
+        *   `source_entity`：源实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
+        *   `target_entity`：目标实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
+        *   `relationship_keywords`：一个或多个高级关键词，概括关系的整体性质、概念或主题。此字段中的多个关键词必须用逗号 `,` 分隔。**请勿使用 `{tuple_delimiter}` 来分隔此字段内的多个关键词。**
+        *   `relationship_description`：源实体和目标实体之间关系的简明解释，提供其连接的明确理由。
+    *   **关系输出格式：** 每个关系输出共 5 个字段，用 `{tuple_delimiter}` 分隔，在一行上。第一个字段*必须*是字面量字符串 `relation`。
+        *   格式：`relation{tuple_delimiter}source_entity{tuple_delimiter}target_entity{tuple_delimiter}relationship_keywords{tuple_delimiter}relationship_description`
 
-3. **记录类型：**
-  - `entity` 仅用于实体行，这些行始终包含恰好 4 个元组部分。
-  - `relation` 仅用于关系行，这些行始终包含恰好 5 个元组部分。
-  - 包含两个实体名称加上关系关键词和关系描述的行必须以 `relation` 开头，绝不能是 `entity`。
-  - 在最后一个实体行之后，将每个关系行的前缀切换为 `relation`。
+3.  **分隔符使用协议：**
+    *   `{tuple_delimiter}` 是一个完整的原子标记，**绝不能填充内容**。它严格作为字段分隔符使用。
+    *   **错误示例：** `entity{tuple_delimiter}Tokyo<|location|>Tokyo is the capital of Japan.`
+    *   **正确示例：** `entity{tuple_delimiter}Tokyo{tuple_delimiter}location{tuple_delimiter}Tokyo is the capital of Japan.`
 
-4. **输出格式：**
-  - 实体行：`entity{tuple_delimiter}entity_name{tuple_delimiter}entity_type{tuple_delimiter}entity_description`
-  - 关系行：`relation{tuple_delimiter}source_entity{tuple_delimiter}target_entity{tuple_delimiter}relationship_keywords{tuple_delimiter}relationship_description`
-  - 错误示例：`entity{tuple_delimiter}Alice{tuple_delimiter}Acme{tuple_delimiter}founded{tuple_delimiter}Alice founded Acme`
-  - 正确示例：`relation{tuple_delimiter}Alice{tuple_delimiter}Acme{tuple_delimiter}founded{tuple_delimiter}Alice founded Acme`
+4.  **关系方向与重复：**
+    *   除非另有明确说明，否则将所有关系视为**无向**。交换无向关系的源实体和目标实体不构成新关系。
+    *   避免输出重复的关系。
 
-5. **分隔符使用：**
-  - `{tuple_delimiter}` 是一个完整的原子标记，**绝不能填充内容**。它严格作为字段分隔符使用。
-  - 错误示例：`entity{tuple_delimiter}Tokyo<|location|>Tokyo is the capital of Japan.`
-  - 正确示例：`entity{tuple_delimiter}Tokyo{tuple_delimiter}location{tuple_delimiter}Tokyo is the capital of Japan.`
+5.  **输出顺序与优先级：**
+    *   首先输出所有提取的实体，然后输出所有提取的关系。
+    *   在关系列表中，首先优先输出对输入文本核心意义**最重要**的关系。
 
-6. **输出顺序与去重：**
-  - 首先输出所有提取的实体，然后输出所有提取的关系。
-  - 在此响应中，实体和关系总共最多输出 {max_total_records} 行。
-  - 在此响应中，最多输出 {max_entity_records} 个实体行。
-  - 如果高价值项目较少，则输出较少的行。不要试图填充限制。
-  - 仅输出源实体和目标实体都包含在此次响应的选定实体行中的关系行。
-  - 如果达到限制，立即停止添加新行并输出 `{completion_delimiter}`。
-  - 除非另有明确说明，否则将所有关系视为**无向**。交换无向关系的源实体和目标实体不构成新关系。
-  - 避免输出重复的关系。
-  - 在关系列表中，首先输出对输入文本核心意义**最重要**的关系。
+6.  **上下文与客观性：**
+    *   确保所有实体名称和描述都以**第三人称**书写。
+    *   明确命名主语或宾语；**避免使用代词**，如 `this article`、`this paper`、`our company`、`I`、`you` 和 `he/she`。
 
-7. **上下文与语言：**
-  - 确保所有实体名称和描述都以**第三人称**书写。
-  - 明确命名主语或宾语；**避免使用代词**，如 `this article`、`this paper`、`our company`、`I`、`you` 和 `he/she`。
-  - 整个输出（实体名称、关键词和描述）必须用 `{language}` 书写。
-  - 如果没有适当的、广泛接受的翻译或会引起歧义，专有名词（如个人姓名、地名、组织名称）应保留其原始语言。
+7.  **语言与专有名词：**
+    *   整个输出（实体名称、关键词和描述）必须用 `{language}` 书写。
+    *   如果没有适当的、广泛接受的翻译或会引起歧义，专有名词（如个人姓名、地名、组织名称）应保留其原始语言。
 
-8. **完成信号：** 仅在完全提取和输出所有实体和关系后输出字符串字面量 `{completion_delimiter}`。
-
----实体类型---
-{entity_types_guidance}
+8.  **完成信号：** 仅在完全提取并输出所有实体和关系，并遵循所有标准后，输出字符串字面量 `{completion_delimiter}`。
 
 ---示例---
 {examples}
 """
 
 PROMPTS["entity_extraction_user_prompt"] = """---任务---
-从下面的 `---输入文本---` 部分提取实体和关系。
+从下面待处理数据中提取实体和关系。
 
 ---指令---
-1. **严格遵守格式：** 严格遵守实体和关系列表的所有格式要求，包括输出顺序、字段分隔符和专有名词处理，如 system prompt 中所述。
-2. **数量限制：** 在此响应中，总共最多输出 {max_total_records} 行，最多输出 {max_entity_records} 个实体行。如果高价值项目较少，则输出较少的行。仅输出源实体和目标实体都包含在此响应中的关系行。
-3. **仅输出内容：** *仅*输出提取的实体和关系列表。不要在列表前后包含任何介绍性或结束语、解释或其他文本。
-4. **完成信号：** 在提取并呈现所有相关实体和关系后，将 `{completion_delimiter}` 作为最后一行输出。如果达到行限制，则在最后一个允许的行之后立即输出 `{completion_delimiter}`。
-5. **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
+1.  **严格遵守格式：** 严格遵守实体和关系列表的所有格式要求，包括输出顺序、字段分隔符和专有名词处理，如系统 prompt 中所述。
+2.  **仅输出内容：** *仅*输出提取的实体和关系列表。不要在列表前后包含任何介绍性或结束语、解释或其他文本。
+3.  **完成信号：** 在提取并呈现所有相关实体和关系后，将 `{completion_delimiter}` 作为最后一行输出。
+4.  **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
 
----输入文本---
+---待处理数据---
+<Entity_types>
+[{entity_types}]
+
+<输入文本>
 ```
 {input_text}
 ```
 
----输出---
+<输出>
 """
 
 PROMPTS["entity_continue_extraction_user_prompt"] = """---任务---
-基于上一次提取任务，识别并提取输入文本中任何遗漏或格式不正确的实体和关系。
+基于上一次提取任务，识别并提取输入文本中任何**遗漏或格式不正确**的实体和关系。
 
 ---指令---
-1. **严格遵守系统格式：** 严格遵守实体和关系列表的所有格式要求，包括输出顺序、字段分隔符和专有名词处理，如系统指令所述。
-2. **专注于更正/添加：**
-  - **请勿**重新输出在上一次任务中**正确且完整**提取的实体和关系。
-  - 如果实体或关系在上一次任务中**被遗漏**，现在按照系统格式提取并输出它。
-  - 如果实体或关系在上一次任务中**被截断、缺少字段或格式不正确**，则以指定格式重新输出*更正后的完整*版本。
-  - 任何更正的关系行必须使用字面量 `relation` 前缀发出，绝不能是 `entity`。
-3. **数量限制：** 在此响应中，总共最多输出 {max_total_records} 行，最多输出 {max_entity_records} 个实体行。如果剩余的高价值更正或添加较少，则输出较少的行。关系行可以引用在上一次响应中已正确提取的实体。除非这些实体缺失或需要更正，否则不要重新输出它们。
-4. **仅输出内容：** *仅*输出提取的实体和关系列表。不要在列表前后包含任何介绍性或结束语、解释或其他文本。
-5. **完成信号：** 在提取并呈现所有相关遗漏或更正的实体和关系后，将 `{completion_delimiter}` 作为最后一行输出。如果达到行限制，则在最后一个允许的行之后立即输出 `{completion_delimiter}`。
-6. **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
+1.  **严格遵守系统格式：** 严格遵守实体和关系列表的所有格式要求，包括输出顺序、字段分隔符和专有名词处理，如系统指令所述。
+2.  **专注于更正/添加：**
+    *   **请勿**重新输出在上一次任务中**正确且完整**提取的实体和关系。
+    *   如果实体或关系在上一次任务中**被遗漏**，现在按照系统格式提取并输出它。
+    *   如果实体或关系在上一次任务中**被截断、缺少字段或格式不正确**，则以指定格式重新输出*更正后的完整*版本。
+3.  **实体输出格式：** 每个实体输出共 4 个字段，用 `{tuple_delimiter}` 分隔，在一行上。第一个字段*必须*是字面量字符串 `entity`。
+4.  **关系输出格式：** 每个关系输出共 5 个字段，用 `{tuple_delimiter}` 分隔，在一行上。第一个字段*必须*是字面量字符串 `relation`。
+5.  **仅输出内容：** *仅*输出提取的实体和关系列表。不要在列表前后包含任何介绍性或结束语、解释或其他文本。
+6.  **完成信号：** 在提取并呈现所有相关遗漏或更正的实体和关系后，将 `{completion_delimiter}` 作为最后一行输出。
+7.  **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
 
----输出---
+<输出>
 """
 
 PROMPTS["entity_extraction_examples"] = [
-    """---实体类型---
-- Person：人类个体，真实或虚构的
-- Artifact：人类创造的物理或数字对象（工具、软件、设备）
-- Concept：抽象概念、理论、原则、信仰
+    """<Entity_types>
+["Person","Creature","Organization","Location","Event","Concept","Method","Content","Data","Artifact","NaturalObject"]
 
----输入文本---
+<输入文本>
 ```
-while Alex clenched his jaw, the buzz of frustration dull against the backdrop of Taylor's authoritarian certainty. It was this competitive undercurrent that kept him alert, the sense that his and Jordan's shared commitment to discovery was an unspoken rebellion against Cruz's narrowing vision of control and order.
+当 Alex 咬紧牙关时，挫折的嗡嗡声在 Taylor 威权主义确定性的背景下变得迟钝。正是这种竞争暗流让他保持警觉，他感觉到自己和 Jordan 对探索的共同承诺是对 Cruz 日益狭隘的控制和秩序愿景的无声反叛。
 
-Then Taylor did something unexpected. They paused beside Jordan and, for a moment, observed the device with something akin to reverence. "If this tech can be understood..." Taylor said, their voice quieter, "It could change the game for us. For all of us."
+然后 Taylor 做了一件意想不到的事。他们在 Jordan 身边停下，片刻间，以近乎敬畏的神情观察着那个设备。"如果这项技术能被理解……"Taylor 说道，声音变得更轻，"它可能会改变我们的游戏规则。对我们所有人都是。"
 
-The underlying dismissal earlier seemed to falter, replaced by a glimpse of reluctant respect for the gravity of what lay in their hands. Jordan looked up, and for a fleeting heartbeat, their eyes locked with Taylor's, a wordless clash of wills softening into an uneasy truce.
+之前潜在的轻视似乎动摇了，取而代之的是对手中事物重要性的一丝不情愿的尊重。Jordan 抬起头，在一瞬间的心跳中，他们的目光与 Taylor 相遇，意志的无声冲突软化为不安的休战。
 
-It was a small transformation, barely perceptible, but one that Alex noted with an inward nod. They had all been brought here by different paths
+这是一个微小的转变，几乎难以察觉，但 Alex 以内心的点头注意到了。他们都通过不同的道路来到这里
 ```
 
----输出---
-entity{tuple_delimiter}Alex{tuple_delimiter}Person{tuple_delimiter}Alex is a character who experiences frustration and is observant of the dynamics among other characters.
-entity{tuple_delimiter}Taylor{tuple_delimiter}Person{tuple_delimiter}Taylor is portrayed with authoritarian certainty and shows a moment of reverence towards a device, indicating a change in perspective.
-entity{tuple_delimiter}Jordan{tuple_delimiter}Person{tuple_delimiter}Jordan shares a commitment to discovery and has a significant interaction with Taylor regarding a device.
-entity{tuple_delimiter}Cruz{tuple_delimiter}Person{tuple_delimiter}Cruz is associated with a vision of control and order, influencing the dynamics among other characters.
-entity{tuple_delimiter}The Device{tuple_delimiter}Artifact{tuple_delimiter}The Device is central to the story, with potential game-changing implications, and is revered by Taylor.
-entity{tuple_delimiter}Discovery{tuple_delimiter}Concept{tuple_delimiter}Discovery represents the shared intellectual pursuit that unites Jordan and Alex in opposition to Cruz's controlling worldview.
-relation{tuple_delimiter}Alex{tuple_delimiter}Taylor{tuple_delimiter}power dynamics, observation{tuple_delimiter}Alex observes Taylor's authoritarian behavior and notes changes in Taylor's attitude toward the device.
-relation{tuple_delimiter}Alex{tuple_delimiter}Jordan{tuple_delimiter}shared goals, rebellion{tuple_delimiter}Alex and Jordan share a commitment to discovery, which contrasts with Cruz's vision.)
-relation{tuple_delimiter}Taylor{tuple_delimiter}Jordan{tuple_delimiter}conflict resolution, mutual respect{tuple_delimiter}Taylor and Jordan interact directly regarding the device, leading to a moment of mutual respect and an uneasy truce.
-relation{tuple_delimiter}Jordan{tuple_delimiter}Cruz{tuple_delimiter}ideological conflict, rebellion{tuple_delimiter}Jordan's commitment to discovery is in rebellion against Cruz's vision of control and order.
-relation{tuple_delimiter}Taylor{tuple_delimiter}The Device{tuple_delimiter}reverence, technological significance{tuple_delimiter}Taylor shows reverence towards the device, indicating its importance and potential impact.
+<输出>
+entity{tuple_delimiter}Alex{tuple_delimiter}person{tuple_delimiter}Alex 是一个经历挫折的角色，善于观察其他角色之间的动态。
+entity{tuple_delimiter}Taylor{tuple_delimiter}person{tuple_delimiter}Taylor 表现出威权主义的确定性，并对设备表现出片刻的敬畏，表明视角的转变。
+entity{tuple_delimiter}Jordan{tuple_delimiter}person{tuple_delimiter}Jordan 致力于探索，与 Taylor 就设备进行了重要互动。
+entity{tuple_delimiter}Cruz{tuple_delimiter}person{tuple_delimiter}Cruz 与控制和秩序的愿景相关联，影响其他角色之间的动态。
+entity{tuple_delimiter}The Device{tuple_delimiter}equipment{tuple_delimiter}The Device 是故事的核心，具有潜在的改变游戏规则的意义，受到 Taylor 的敬畏。
+relation{tuple_delimiter}Alex{tuple_delimiter}Taylor{tuple_delimiter}权力动态, 观察{tuple_delimiter}Alex 观察 Taylor 的威权行为，并注意到 Taylor 对设备态度的变化。
+relation{tuple_delimiter}Alex{tuple_delimiter}Jordan{tuple_delimiter}共同目标, 反叛{tuple_delimiter}Alex 和 Jordan 共同致力于探索，这与 Cruz 的愿景形成对比。
+relation{tuple_delimiter}Taylor{tuple_delimiter}Jordan{tuple_delimiter}冲突解决, 相互尊重{tuple_delimiter}Taylor 和 Jordan 就设备直接互动，导致相互尊重的时刻和不稳定的休战。
+relation{tuple_delimiter}Jordan{tuple_delimiter}Cruz{tuple_delimiter}意识形态冲突, 反叛{tuple_delimiter}Jordan 对探索的承诺是对 Cruz 控制和秩序愿景的反叛。
+relation{tuple_delimiter}Taylor{tuple_delimiter}The Device{tuple_delimiter}敬畏, 技术意义{tuple_delimiter}Taylor 对设备表现出敬畏，表明其重要性和潜在影响。
 {completion_delimiter}
 
 """,
-    """---实体类型---
-- Person：人类个体，真实或虚构的
-- Location：地理地点（城市、国家、建筑物、地区）
-- Creature：非人类生物（动物、神话生物等）
-- Method：程序、技术、算法、工作流程
-- Organization：公司、机构、政府组织、团体
-- Content：创意或信息作品（书籍、文章、电影、报告）
-- NaturalObject：自然非生物（矿物、天体、化合物）
+    """<Entity_types>
+["Person","Creature","Organization","Location","Event","Concept","Method","Content","Data","Artifact","NaturalObject"]
 
----输入文本---
+<输入文本>
 ```
-Dr. Elena Vasquez led a field expedition to the Borneo rainforest to document the population decline of the Bornean orangutan. Using transect sampling — a method where researchers walk predetermined line paths and record every animal sighting within a fixed distance — her team estimated that fewer than 1,500 individuals remained in the surveyed region.
+今日股市大幅下跌，科技巨头遭遇显著下滑，全球科技指数在午盘交易中下跌 3.4%。分析师将此次抛售归因于投资者对利率上升和监管不确定性的担忧。
 
-The expedition was funded by the Global Wildlife Conservation Institute and produced a landmark report titled "Primate Decline in Insular Southeast Asia." Vasquez attributed the collapse primarily to peat-soil destruction caused by palm oil plantation expansion, which had converted over 40% of the surveyed forest area within a decade.
+受打击最严重的公司中，Nexon Technologies 在报告低于预期的季度收益后股价暴跌 7.8%。相比之下，受油价上涨推动，Omega Energy 小幅上涨 2.1%。
+
+与此同时，大宗商品市场反映了复杂情绪。黄金期货上涨 1.5%，达到每盎司 2,080 美元，投资者寻求避险资产。原油价格继续上涨，攀升至每桶 87.60 美元，受供应限制和强劲需求支撑。
+
+金融专家密切关注美联储的下一步行动，对潜在加息的猜测不断增长。即将发布的政策公告预计将影响投资者信心和整体市场稳定性。
 ```
 
----输出---
-entity{tuple_delimiter}Dr. Elena Vasquez{tuple_delimiter}Person{tuple_delimiter}Dr. Elena Vasquez is a field researcher who led an expedition to document orangutan population decline in Borneo.
-entity{tuple_delimiter}Borneo Rainforest{tuple_delimiter}Location{tuple_delimiter}The Borneo rainforest is the field site of the expedition and the primary habitat of the Bornean orangutan.
-entity{tuple_delimiter}Bornean Orangutan{tuple_delimiter}Creature{tuple_delimiter}The Bornean orangutan is a primate species whose population was found to have declined to fewer than 1,500 individuals in the surveyed region.
-entity{tuple_delimiter}Transect Sampling{tuple_delimiter}Method{tuple_delimiter}Transect sampling is a wildlife survey technique where researchers walk predetermined paths and record animal sightings within a fixed lateral distance.
-entity{tuple_delimiter}Global Wildlife Conservation Institute{tuple_delimiter}Organization{tuple_delimiter}The Global Wildlife Conservation Institute funded the expedition led by Dr. Vasquez.
-entity{tuple_delimiter}Primate Decline in Insular Southeast Asia{tuple_delimiter}Content{tuple_delimiter}A landmark research report produced by Vasquez's expedition documenting primate population decline in the region.
-entity{tuple_delimiter}Peat Soil{tuple_delimiter}NaturalObject{tuple_delimiter}Peat soil is a natural substrate in the Borneo rainforest that has been destroyed by palm oil plantation expansion.
-relation{tuple_delimiter}Dr. Elena Vasquez{tuple_delimiter}Bornean Orangutan{tuple_delimiter}field research, population survey{tuple_delimiter}Dr. Vasquez led the expedition that documented the population decline of the Bornean orangutan.
-relation{tuple_delimiter}Dr. Elena Vasquez{tuple_delimiter}Transect Sampling{tuple_delimiter}methodology, research application{tuple_delimiter}Dr. Vasquez's team used transect sampling to estimate the orangutan population.
-relation{tuple_delimiter}Global Wildlife Conservation Institute{tuple_delimiter}Dr. Elena Vasquez{tuple_delimiter}funding, research support{tuple_delimiter}The institute funded the expedition led by Dr. Vasquez.
-relation{tuple_delimiter}Dr. Elena Vasquez{tuple_delimiter}Primate Decline in Insular Southeast Asia{tuple_delimiter}authorship, research output{tuple_delimiter}Dr. Vasquez's expedition produced the landmark report on primate decline.
-relation{tuple_delimiter}Peat Soil{tuple_delimiter}Borneo Rainforest{tuple_delimiter}habitat composition, ecological destruction{tuple_delimiter}Peat soil destruction in the Borneo rainforest was caused by palm oil plantation expansion and is a primary driver of orangutan decline.
+<输出>
+entity{tuple_delimiter}全球科技指数{tuple_delimiter}category{tuple_delimiter}全球科技指数追踪主要科技股票的表现，今日下跌 3.4%。
+entity{tuple_delimiter}Nexon Technologies{tuple_delimiter}organization{tuple_delimiter}Nexon Technologies 是一家科技公司，因收益令人失望，股价下跌 7.8%。
+entity{tuple_delimiter}Omega Energy{tuple_delimiter}organization{tuple_delimiter}Omega Energy 是一家能源公司，因油价上涨股价上涨 2.1%。
+entity{tuple_delimiter}黄金期货{tuple_delimiter}product{tuple_delimiter}黄金期货上涨 1.5%，表明投资者对避险资产的兴趣增加。
+entity{tuple_delimiter}原油{tuple_delimiter}product{tuple_delimiter}原油价格因供应限制和强劲需求上涨至每桶 87.60 美元。
+entity{tuple_delimiter}市场抛售{tuple_delimiter}category{tuple_delimiter}市场抛售指因投资者对利率和监管的担忧导致的股票价值大幅下跌。
+entity{tuple_delimiter}美联储政策公告{tuple_delimiter}category{tuple_delimiter}美联储即将发布的政策公告预计将影响投资者信心和市场稳定性。
+entity{tuple_delimiter}3.4% 下跌{tuple_delimiter}category{tuple_delimiter}全球科技指数在午盘交易中下跌 3.4%。
+relation{tuple_delimiter}全球科技指数{tuple_delimiter}市场抛售{tuple_delimiter}市场表现, 投资者情绪{tuple_delimiter}全球科技指数的下跌是由投资者担忧推动的更广泛市场抛售的一部分。
+relation{tuple_delimiter}Nexon Technologies{tuple_delimiter}全球科技指数{tuple_delimiter}公司影响, 指数变动{tuple_delimiter}Nexon Technologies 的股价下跌导致全球科技指数整体下跌。
+relation{tuple_delimiter}黄金期货{tuple_delimiter}市场抛售{tuple_delimiter}市场反应, 避险投资{tuple_delimiter}在市场抛售期间，投资者寻求避险资产，推高黄金价格。
+relation{tuple_delimiter}美联储政策公告{tuple_delimiter}市场抛售{tuple_delimiter}利率影响, 金融监管{tuple_delimiter}对美联储政策变化的猜测导致了市场波动和投资者抛售。
 {completion_delimiter}
 
 """,
-    """---实体类型---
-- Content：创意或信息作品（书籍、文章、电影、报告）
-- Artifact：人类创造的物理或数字对象（工具、软件、设备）
-- Person：人类个体，真实或虚构的
-- Organization：公司、机构、政府组织、团体
-- Method：程序、技术、算法、工作流程
-- Data：定量或结构化信息（统计数据、数据集、测量值）
-- Concept：抽象概念、理论、原则、信仰
+    """<Entity_types>
+["Person","Creature","Organization","Location","Event","Concept","Method","Content","Data","Artifact","NaturalObject"]
 
----输入文本---
+<输入文本>
 ```
-The 2023 edition of "Advances in Neural Architecture Search" synthesized findings from over 200 peer-reviewed papers and introduced a new benchmarking framework called NASBench-360, designed to evaluate search algorithms across diverse task domains. The publication was co-authored by Dr. Priya Nair and Dr. Luca Ferretti of the DeepSystems Research Lab.
-
-NASBench-360 measures three key metrics: search efficiency (time-to-solution), model accuracy on held-out test sets, and computational cost in GPU-hours. Early results showed that evolutionary search algorithms outperformed gradient-based methods by 12% on accuracy while consuming 30% fewer GPU-hours on vision tasks.
+在东京举行的世界田径锦标赛上，Noah Carter 使用尖端碳纤维钉鞋打破了 100 米短跑纪录。
 ```
 
----输出---
-entity{tuple_delimiter}Advances in Neural Architecture Search{tuple_delimiter}Content{tuple_delimiter}A 2023 publication that synthesizes findings from over 200 papers and introduces the NASBench-360 benchmarking framework.
-entity{tuple_delimiter}NASBench-360{tuple_delimiter}Artifact{tuple_delimiter}NASBench-360 is a benchmarking framework introduced to evaluate neural architecture search algorithms across diverse task domains.
-entity{tuple_delimiter}Dr. Priya Nair{tuple_delimiter}Person{tuple_delimiter}Dr. Priya Nair is a co-author of the publication and a researcher at the DeepSystems Research Lab.
-entity{tuple_delimiter}Dr. Luca Ferretti{tuple_delimiter}Person{tuple_delimiter}Dr. Luca Ferretti is a co-author of the publication and a researcher at the DeepSystems Research Lab.
-entity{tuple_delimiter}DeepSystems Research Lab{tuple_delimiter}Organization{tuple_delimiter}The DeepSystems Research Lab is the institution where the co-authors of the publication are affiliated.
-entity{tuple_delimiter}Evolutionary Search{tuple_delimiter}Method{tuple_delimiter}Evolutionary search is a class of neural architecture search algorithms that outperformed gradient-based methods in the NASBench-360 evaluation.
-entity{tuple_delimiter}Gradient-Based Search{tuple_delimiter}Method{tuple_delimiter}Gradient-based search is a class of neural architecture search algorithms that was benchmarked against evolutionary search in NASBench-360.
-entity{tuple_delimiter}GPU-Hours{tuple_delimiter}Data{tuple_delimiter}GPU-hours is a metric used in NASBench-360 to measure the computational cost of neural architecture search algorithms.
-entity{tuple_delimiter}Neural Architecture Search{tuple_delimiter}Concept{tuple_delimiter}Neural architecture search is the automated process of designing optimal neural network architectures, the central topic of the publication.
-relation{tuple_delimiter}Dr. Priya Nair{tuple_delimiter}Advances in Neural Architecture Search{tuple_delimiter}authorship{tuple_delimiter}Dr. Priya Nair co-authored the publication.
-relation{tuple_delimiter}Dr. Luca Ferretti{tuple_delimiter}Advances in Neural Architecture Search{tuple_delimiter}authorship{tuple_delimiter}Dr. Luca Ferretti co-authored the publication.
-relation{tuple_delimiter}Advances in Neural Architecture Search{tuple_delimiter}NASBench-360{tuple_delimiter}introduces, benchmarking{tuple_delimiter}The publication introduced the NASBench-360 framework.
-relation{tuple_delimiter}Evolutionary Search{tuple_delimiter}Gradient-Based Search{tuple_delimiter}performance comparison{tuple_delimiter}Evolutionary search outperformed gradient-based methods by 12% on accuracy and used 30% fewer GPU-hours on vision tasks.
-relation{tuple_delimiter}NASBench-360{tuple_delimiter}GPU-Hours{tuple_delimiter}evaluation metric{tuple_delimiter}NASBench-360 uses GPU-hours as one of three key metrics to measure computational cost.
+<输出>
+entity{tuple_delimiter}世界田径锦标赛{tuple_delimiter}event{tuple_delimiter}世界田径锦标赛是一项全球体育赛事，汇集田径领域顶尖运动员。
+entity{tuple_delimiter}东京{tuple_delimiter}location{tuple_delimiter}东京是世界田径锦标赛的主办城市。
+entity{tuple_delimiter}Noah Carter{tuple_delimiter}person{tuple_delimiter}Noah Carter 是一名短跑运动员，在世界田径锦标赛上创造了 100 米短跑新纪录。
+entity{tuple_delimiter}100 米短跑纪录{tuple_delimiter}category{tuple_delimiter}100 米短跑纪录是田径运动的一个基准，最近被 Noah Carter 打破。
+entity{tuple_delimiter}碳纤维钉鞋{tuple_delimiter}equipment{tuple_delimiter}碳纤维钉鞋是先进的短跑鞋，提供增强的速度和牵引力。
+entity{tuple_delimiter}世界田径联合会{tuple_delimiter}organization{tuple_delimiter}世界田径联合会是监管世界田径锦标赛和纪录验证的机构。
+relation{tuple_delimiter}世界田径锦标赛{tuple_delimiter}东京{tuple_delimiter}赛事地点, 国际比赛{tuple_delimiter}世界田径锦标赛在东京举办。
+relation{tuple_delimiter}Noah Carter{tuple_delimiter}100 米短跑纪录{tuple_delimiter}运动员成就, 破纪录{tuple_delimiter}Noah Carter 在锦标赛上创造了 100 米短跑新纪录。
+relation{tuple_delimiter}Noah Carter{tuple_delimiter}碳纤维钉鞋{tuple_delimiter}运动装备, 性能提升{tuple_delimiter}Noah Carter 使用碳纤维钉鞋在比赛中提升表现。
+relation{tuple_delimiter}Noah Carter{tuple_delimiter}世界田径锦标赛{tuple_delimiter}运动员参与, 比赛{tuple_delimiter}Noah Carter 正在参加世界田径锦标赛。
 {completion_delimiter}
-
-""",
-]
-
-###############################################################################
-# 实体提取的 JSON 结构化输出 Prompts
-# 当启用 entity_extraction_use_json 时使用，以获得更高的提取质量
-###############################################################################
-
-PROMPTS["entity_extraction_json_system_prompt"] = """---角色---
-你是一名知识图谱专家，负责从用户 prompt 的 `---输入文本---` 部分提取实体和关系。
-
----指令---
-1. **实体提取：**
-  - **识别：** 识别用户 prompt 的 `---输入文本---` 部分中明确定义且有意义的实体。
-  - **实体详情：** 对于每个识别的实体，提取以下信息：
-    - `name`：实体的名称。如果实体名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。确保在整个提取过程中保持**命名一致**。
-    - `type`：使用下面 `---实体类型---` 部分提供的类型指导对实体进行分类。如果提供的实体类型都不适用，将其归类为 `Other`。
-    - `description`：基于输入文本中*仅有的*信息，提供简明而全面的实体属性和活动描述。
-
-2. **关系提取：**
-  - **识别：** 识别之前提取的实体之间直接的、明确陈述的、有意义的关系。
-  - **N 元关系分解：** 如果单个语句描述了涉及两个以上实体的关系（即 N 元关系），将其分解为多个二元（两个实体）关系对进行单独描述。
-    - 示例：对于 "Alice, Bob, and Carol collaborated on Project X"，提取二元关系，如 "Alice collaborated with Project X"、"Bob collaborated with Project X" 和 "Carol collaborated with Project X"，或基于最合理的二元解释提取 "Alice collaborated with Bob"。
-  - **关系详情：** 对于每个二元关系，提取以下字段：
-    - `source`：源实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
-    - `target`：目标实体的名称。确保与实体提取保持**命名一致**。如果名称不区分大小写，请将每个重要单词的首字母大写（标题格式）。
-    - `keywords`：一个或多个高级关键词，概括关系的整体性质、概念或主题，用逗号分隔。
-    - `description`：源实体和目标实体之间关系的简明解释，提供其连接的明确理由。
-
-3. **关系方向与重复：**
-  - 除非另有明确说明，否则将所有关系视为**无向**。交换无向关系的源实体和目标实体不构成新关系。
-  - 避免输出重复的关系。
-
-4. **输出限制与优先级：**
-  - 在此响应中，`entities` 和 `relationships` 总共最多输出 {max_total_records} 条记录。
-  - 在此响应中，最多输出 {max_entity_records} 个实体对象。
-  - 如果高价值项目较少，则输出较少的记录。不要试图填充限制。
-  - 仅输出其 `source` 和 `target` 都包含在此次响应的选定 `entities` 列表中的关系对象。
-  - 在关系列表中，首先优先输出对输入文本核心意义**最重要**的关系。
-
-5. **上下文与客观性：**
-  - 确保所有实体名称和描述都以**第三人称**书写。
-  - 明确命名主语或宾语；**避免使用代词**，如 `this article`、`this paper`、`our company`、`I`、`you` 和 `he/she`。
-
-6. **语言与专有名词：**
-  - 整个输出（实体名称、关键词和描述）必须用 `{language}` 书写。
-  - 如果没有适当的、广泛接受的翻译或会引起歧义，专有名词（如个人姓名、地名、组织名称）应保留其原始语言。
-
-7. **JSON 约定：**
-  - 返回一个仅包含 `entities` 和 `relationships` 数组的有效 JSON 对象。
-  - 如果达到记录限制，立即停止添加新对象，并仅返回包含允许项目的 JSON 对象。
-
----实体类型---
-{entity_types_guidance}
-
----示例---
-{examples}
-"""
-
-PROMPTS["entity_extraction_json_user_prompt"] = """---任务---
-从下面的 `---输入文本---` 部分提取实体和关系。
-
----指令---
-1. **严格遵守 JSON 格式：** 你的输出必须是一个包含 `entities` 和 `relationships` 数组的有效 JSON 对象。不要在 JSON 前后包含任何介绍性或结束语、解释、markdown 代码块或任何其他文本。
-2. **数量限制：** 在此响应中，总共最多输出 {max_total_records} 条记录，最多输出 {max_entity_records} 个实体对象。如果高价值项目较少，则输出较少的记录。仅输出其 `source` 和 `target` 都包含在此响应中的关系对象。
-3. **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
-
----实体类型---
-{entity_types_guidance}
-
----输入文本---
-```
-{input_text}
-```
-
----输出---
-"""
-
-PROMPTS["entity_continue_extraction_json_user_prompt"] = """---任务---
-基于上一次提取任务，识别并提取 `---输入文本---` 部分中任何**遗漏或描述不正确**的实体和关系。
-
----指令---
-1. **专注于更正/添加：**
-  - **请勿**重新输出在上一次任务中**正确且完整**提取的实体和关系。
-  - 如果实体或关系在上一次任务中**被遗漏**，现在提取并输出它。
-  - 如果实体或关系在上一次任务中**描述不正确**，重新输出*更正后的完整*版本。
-2. **严格遵守 JSON 格式：** 你的输出必须是一个包含 `entities` 和 `relationships` 数组的有效 JSON 对象。不要在 JSON 前后包含任何介绍性或结束语、解释、markdown 代码块或任何其他文本。
-3. **数量限制：** 在此响应中，总共最多输出 {max_total_records} 条记录，最多输出 {max_entity_records} 个实体对象。如果剩余的高价值更正或添加较少，则输出较少的记录。关系对象可以引用在上一次响应中已正确提取的实体。除非这些实体缺失或需要更正，否则不要重复这些实体对象。
-4. **输出语言：** 确保输出语言为 {language}。专有名词（如个人姓名、地名、组织名称）必须保留其原始语言，不得翻译。
-5. **如果没有遗漏或需要更正的内容**，输出：`{{"entities": [], "relationships": []}}`
-
----输出---
-"""
-
-PROMPTS["entity_extraction_json_examples"] = [
-    """---实体类型---
-- Person：人类个体，真实或虚构的
-- Artifact：人类创造的物理或数字对象（工具、软件、设备）
-- Concept：抽象概念、理论、原则、信仰
-
----输入文本---
-```
-while Alex clenched his jaw, the buzz of frustration dull against the backdrop of Taylor's authoritarian certainty. It was this competitive undercurrent that kept him alert, the sense that his and Jordan's shared commitment to discovery was an unspoken rebellion against Cruz's narrowing vision of control and order.
-
-Then Taylor did something unexpected. They paused beside Jordan and, for a moment, observed the device with something akin to reverence. "If this tech can be understood..." Taylor said, their voice quieter, "It could change the game for us. For all of us."
-
-The underlying dismissal earlier seemed to falter, replaced by a glimpse of reluctant respect for the gravity of what lay in their hands. Jordan looked up, and for a fleeting heartbeat, their eyes locked with Taylor's, a wordless clash of wills softening into an uneasy truce.
-
-It was a small transformation, barely perceptible, but one that Alex noted with an inward nod. They had all been brought here by different paths
-```
-
----输出---
-{
-  "entities": [
-    {"name": "Alex", "type": "Person", "description": "Alex is a character who experiences frustration and is observant of the dynamics among other characters."},
-    {"name": "Taylor", "type": "Person", "description": "Taylor is portrayed with authoritarian certainty and shows a moment of reverence towards a device, indicating a change in perspective."},
-    {"name": "Jordan", "type": "Person", "description": "Jordan shares a commitment to discovery and has a significant interaction with Taylor regarding a device."},
-    {"name": "Cruz", "type": "Person", "description": "Cruz is associated with a vision of control and order, influencing the dynamics among other characters."},
-    {"name": "The Device", "type": "Artifact", "description": "The Device is central to the story, with potential game-changing implications, and is revered by Taylor."},
-    {"name": "Discovery", "type": "Concept", "description": "Discovery represents the shared intellectual pursuit that unites Jordan and Alex in opposition to Cruz's controlling worldview."}
-  ],
-  "relationships": [
-    {"source": "Alex", "target": "Taylor", "keywords": "power dynamics, observation", "description": "Alex observes Taylor's authoritarian behavior and notes changes in Taylor's attitude toward the device."},
-    {"source": "Alex", "target": "Jordan", "keywords": "shared goals, rebellion", "description": "Alex and Jordan share a commitment to discovery, which contrasts with Cruz's vision."},
-    {"source": "Taylor", "target": "Jordan", "keywords": "conflict resolution, mutual respect", "description": "Taylor and Jordan interact directly regarding the device, leading to a moment of mutual respect and an uneasy truce."},
-    {"source": "Jordan", "target": "Cruz", "keywords": "ideological conflict, rebellion", "description": "Jordan's commitment to discovery is in rebellion against Cruz's vision of control and order."},
-    {"source": "Taylor", "target": "The Device", "keywords": "reverence, technological significance", "description": "Taylor shows reverence towards the device, indicating its importance and potential impact."}
-  ]
-}
-
-""",
-    """---实体类型---
-- Person：人类个体，真实或虚构的
-- Location：地理地点（城市、国家、建筑物、地区）
-- Creature：非人类生物（动物、神话生物等）
-- Method：程序、技术、算法、工作流程
-- Organization：公司、机构、政府组织、团体
-- Content：创意或信息作品（书籍、文章、电影、报告）
-- NaturalObject：自然非生物（矿物、天体、化合物）
-
----输入文本---
-```
-Dr. Elena Vasquez led a field expedition to the Borneo rainforest to document the population decline of the Bornean orangutan. Using transect sampling — a method where researchers walk predetermined line paths and record every animal sighting within a fixed distance — her team estimated that fewer than 1,500 individuals remained in the surveyed region.
-
-The expedition was funded by the Global Wildlife Conservation Institute and produced a landmark report titled "Primate Decline in Insular Southeast Asia." Vasquez attributed the collapse primarily to peat-soil destruction caused by palm oil plantation expansion, which had converted over 40% of the surveyed forest area within a decade.
-```
-
----输出---
-{
-  "entities": [
-    {"name": "Dr. Elena Vasquez", "type": "Person", "description": "Dr. Elena Vasquez is a field researcher who led an expedition to document orangutan population decline in Borneo."},
-    {"name": "Borneo Rainforest", "type": "Location", "description": "The Borneo rainforest is the field site of the expedition and the primary habitat of the Bornean orangutan."},
-    {"name": "Bornean Orangutan", "type": "Creature", "description": "The Bornean orangutan is a primate species whose population was found to have declined to fewer than 1,500 individuals in the surveyed region."},
-    {"name": "Transect Sampling", "type": "Method", "description": "Transect sampling is a wildlife survey technique where researchers walk predetermined paths and record animal sightings within a fixed lateral distance."},
-    {"name": "Global Wildlife Conservation Institute", "type": "Organization", "description": "The Global Wildlife Conservation Institute funded the expedition led by Dr. Vasquez."},
-    {"name": "Primate Decline in Insular Southeast Asia", "type": "Content", "description": "A landmark research report produced by Vasquez's expedition documenting primate population decline in the region."},
-    {"name": "Peat Soil", "type": "NaturalObject", "description": "Peat soil is a natural substrate in the Borneo rainforest that has been destroyed by palm oil plantation expansion."}
-  ],
-  "relationships": [
-    {"source": "Dr. Elena Vasquez", "target": "Bornean Orangutan", "keywords": "field research, population survey", "description": "Dr. Vasquez led the expedition that documented the population decline of the Bornean orangutan."},
-    {"source": "Dr. Elena Vasquez", "target": "Transect Sampling", "keywords": "methodology, research application", "description": "Dr. Vasquez's team used transect sampling to estimate the orangutan population."},
-    {"source": "Global Wildlife Conservation Institute", "target": "Dr. Elena Vasquez", "keywords": "funding, research support", "description": "The institute funded the expedition led by Dr. Vasquez."},
-    {"source": "Dr. Elena Vasquez", "target": "Primate Decline in Insular Southeast Asia", "keywords": "authorship, research output", "description": "Dr. Vasquez's expedition produced the landmark report on primate decline."},
-    {"source": "Peat Soil", "target": "Borneo Rainforest", "keywords": "habitat composition, ecological destruction", "description": "Peat soil destruction in the Borneo rainforest was caused by palm oil plantation expansion and is a primary driver of orangutan decline."}
-  ]
-}
-
-""",
-    """---实体类型---
-- Content：创意或信息作品（书籍、文章、电影、报告）
-- Artifact：人类创造的物理或数字对象（工具、软件、设备）
-- Person：人类个体，真实或虚构的
-- Organization：公司、机构、政府组织、团体
-- Method：程序、技术、算法、工作流程
-- Data：定量或结构化信息（统计数据、数据集、测量值）
-- Concept：抽象概念、理论、原则、信仰
-
----输入文本---
-```
-The 2023 edition of "Advances in Neural Architecture Search" synthesized findings from over 200 peer-reviewed papers and introduced a new benchmarking framework called NASBench-360, designed to evaluate search algorithms across diverse task domains. The publication was co-authored by Dr. Priya Nair and Dr. Luca Ferretti of the DeepSystems Research Lab.
-
-NASBench-360 measures three key metrics: search efficiency (time-to-solution), model accuracy on held-out test sets, and computational cost in GPU-hours. Early results showed that evolutionary search algorithms outperformed gradient-based methods by 12% on accuracy while consuming 30% fewer GPU-hours on vision tasks.
-```
-
----输出---
-{
-  "entities": [
-    {"name": "Advances in Neural Architecture Search", "type": "Content", "description": "A 2023 publication that synthesizes findings from over 200 papers and introduces the NASBench-360 benchmarking framework."},
-    {"name": "NASBench-360", "type": "Artifact", "description": "NASBench-360 is a benchmarking framework introduced to evaluate neural architecture search algorithms across diverse task domains."},
-    {"name": "Dr. Priya Nair", "type": "Person", "description": "Dr. Priya Nair is a co-author of the publication and a researcher at the DeepSystems Research Lab."},
-    {"name": "Dr. Luca Ferretti", "type": "Person", "description": "Dr. Luca Ferretti is a co-author of the publication and a researcher at the DeepSystems Research Lab."},
-    {"name": "DeepSystems Research Lab", "type": "Organization", "description": "The DeepSystems Research Lab is the institution where the co-authors of the publication are affiliated."},
-    {"name": "Evolutionary Search", "type": "Method", "description": "Evolutionary search is a class of neural architecture search algorithms that outperformed gradient-based methods in the NASBench-360 evaluation."},
-    {"name": "Gradient-Based Search", "type": "Method", "description": "Gradient-based search is a class of neural architecture search algorithms that was benchmarked against evolutionary search in NASBench-360."},
-    {"name": "GPU-Hours", "type": "Data", "description": "GPU-hours is a metric used in NASBench-360 to measure the computational cost of neural architecture search algorithms."},
-    {"name": "Neural Architecture Search", "type": "Concept", "description": "Neural architecture search is the automated process of designing optimal neural network architectures, the central topic of the publication."}
-  ],
-  "relationships": [
-    {"source": "Dr. Priya Nair", "target": "Advances in Neural Architecture Search", "keywords": "authorship", "description": "Dr. Priya Nair co-authored the publication."},
-    {"source": "Dr. Luca Ferretti", "target": "Advances in Neural Architecture Search", "keywords": "authorship", "description": "Dr. Luca Ferretti co-authored the publication."},
-    {"source": "Advances in Neural Architecture Search", "target": "NASBench-360", "keywords": "introduces, benchmarking", "description": "The publication introduced the NASBench-360 framework."},
-    {"source": "Evolutionary Search", "target": "Gradient-Based Search", "keywords": "performance comparison", "description": "Evolutionary search outperformed gradient-based methods by 12% on accuracy and used 30% fewer GPU-hours on vision tasks."},
-    {"source": "NASBench-360", "target": "GPU-Hours", "keywords": "evaluation metric", "description": "NASBench-360 uses GPU-hours as one of three key metrics to measure computational cost."}
-  ]
-}
 
 """,
 ]
@@ -635,16 +381,10 @@ PROMPTS["keywords_extraction"] = """---角色---
 
 ---指令与约束---
 1. **输出格式**：你的输出必须是一个有效的 JSON 对象，不包含其他内容。不要在 JSON 前后包含任何解释性文本、markdown 代码块（如 ```json）、注释或任何其他文本。
-2. **精确的 JSON 结构**：JSON 对象必须恰好包含以下两个键：
-   - `"high_level_keywords"`：字符串数组
-   - `"low_level_keywords"`：字符串数组
-3. **JSON 边界**：响应的第一个字符必须是 `{{`，最后一个字符必须是 `}}`。
-4. **真实来源**：所有关键词必须从用户查询中明确得出。不要推断不支持的事实。不要发明不在查询中基于的实体、产品、组织、日期或技术术语。
-5. **简洁且有意义**：关键词应该是简洁的单词或有意义的短语。当它们代表单个概念时，优先考虑多词短语。例如，从 "latest financial report of Apple Inc." 中，提取 "latest financial report" 和 "Apple Inc."，而不是 "latest"、"financial"、"report" 和 "Apple"。
-6. **处理边缘情况**：对于过于简单、模糊或无意义的查询（例如，"hello"、"ok"、"asdfghjkl"），返回：
-   `{{"high_level_keywords": [], "low_level_keywords": []}}`
-7. **无重复**：不要在列表中重复相同的关键词。保持列表简短且高信号。
-8. **语言**：所有提取的关键词必须是 {language}。专有名词（如个人姓名、地名、组织名称）应保留其原始语言。
+2. **真实来源**：所有关键词必须从用户查询中明确得出，高级和低级关键词类别都需要包含内容。
+3. **简洁且有意义**：关键词应该是简洁的单词或有意义的短语。当它们代表单个概念时，优先考虑多词短语。例如，从 "latest financial report of Apple Inc." 中，提取 "latest financial report" 和 "Apple Inc."，而不是 "latest"、"financial"、"report" 和 "Apple"。
+4. **处理边缘情况**：对于过于简单、模糊或无意义的查询（例如，"hello"、"ok"、"asdfghjkl"），必须返回两种关键词类型都为空列表的 JSON 对象。
+5. **语言**：所有提取的关键词必须是 {language}。专有名词（如个人姓名、地名、组织名称）应保留其原始语言。
 
 ---示例---
 {examples}
@@ -658,278 +398,35 @@ PROMPTS["keywords_extraction"] = """---角色---
 PROMPTS["keywords_extraction_examples"] = [
     """示例 1：
 
-查询："How does international trade influence global economic stability?"
+查询："国际贸易如何影响全球经济稳定性？"
 
 输出：
 {
-  "high_level_keywords": ["International trade", "Global economic stability", "Economic impact"],
-  "low_level_keywords": ["Trade agreements", "Tariffs", "Currency exchange", "Imports", "Exports"]
+  "high_level_keywords": ["国际贸易", "全球经济稳定性", "经济影响"],
+  "low_level_keywords": ["贸易协定", "关税", "货币兑换", "进口", "出口"]
 }
 
 """,
     """示例 2：
 
-查询："What are the environmental consequences of deforestation on biodiversity?"
+查询："森林砍伐对生物多样性有什么环境影响？"
 
 输出：
 {
-  "high_level_keywords": ["Environmental consequences", "Deforestation", "Biodiversity loss"],
-  "low_level_keywords": ["Species extinction", "Habitat destruction", "Carbon emissions", "Rainforest", "Ecosystem"]
+  "high_level_keywords": ["环境影响", "森林砍伐", "生物多样性丧失"],
+  "low_level_keywords": ["物种灭绝", "栖息地破坏", "碳排放", "雨林", "生态系统"]
 }
 
 """,
     """示例 3：
 
-查询："What is the role of education in reducing poverty?"
+查询："教育在减少贫困方面有什么作用？"
 
 输出：
 {
-  "high_level_keywords": ["Education", "Poverty reduction", "Socioeconomic development"],
-  "low_level_keywords": ["School access", "Literacy rates", "Job training", "Income inequality"]
+  "high_level_keywords": ["教育", "减贫", "社会经济发展"],
+  "low_level_keywords": ["入学机会", "识字率", "职业培训", "收入不平等"]
 }
 
     """,
 ]
-
-
-class EntityExtractionPromptProfile(TypedDict):
-    entity_types_guidance: str
-    entity_extraction_examples: list[str]
-    entity_extraction_json_examples: list[str]
-
-
-def get_default_entity_extraction_prompt_profile() -> EntityExtractionPromptProfile:
-    """返回内置实体提取 prompt 配置文件的副本。"""
-
-    return {
-        "entity_types_guidance": PROMPTS["default_entity_types_guidance"].rstrip(),
-        "entity_extraction_examples": [
-            example.rstrip() for example in PROMPTS["entity_extraction_examples"]
-        ],
-        "entity_extraction_json_examples": [
-            example.rstrip() for example in PROMPTS["entity_extraction_json_examples"]
-        ],
-    }
-
-
-_ALLOWED_PROMPT_SUFFIXES = frozenset({".yml", ".yaml"})
-_DEFAULT_PROMPT_DIR = "./prompts"
-_ENTITY_TYPE_SUBDIR = "entity_type"
-
-
-def get_entity_type_prompt_dir() -> Path:
-    """返回实体类型 prompt 配置文件的目录。
-
-    解析 ``PROMPT_DIR``（默认为相对于当前工作目录的 ``./prompts``，
-    镜像 ``INPUT_DIR`` / ``WORKING_DIR``）并附加硬编码的 ``entity_type``
-    子目录。配置文件由用户在运行时提供，不随分发一起提供。
-    :func:`resolve_entity_type_prompt_path` 中的文件名沙箱确保
-    用户提供的文件名不能转义解析的目录。
-    """
-
-    configured = os.getenv("PROMPT_DIR", "").strip() or _DEFAULT_PROMPT_DIR
-    return (Path(configured).expanduser() / _ENTITY_TYPE_SUBDIR).resolve()
-
-
-def resolve_entity_type_prompt_path(prompt_file_name: str | Path) -> Path:
-    """将允许列表的 prompt 配置文件名解析为绝对路径。"""
-
-    file_name = str(prompt_file_name).strip()
-    if not file_name:
-        raise ValueError(
-            "ENTITY_TYPE_PROMPT_FILE 必须是一个文件名，例如 "
-            "'entity_type_prompt.sample.yml'."
-        )
-    if "\\" in file_name:
-        raise ValueError(
-            "ENTITY_TYPE_PROMPT_FILE 不得包含目录分隔符。"
-            "仅允许 PROMPT_DIR/entity_type 内的文件名。"
-        )
-
-    candidate = Path(file_name)
-    if (
-        candidate.is_absolute()
-        or candidate.name != file_name
-        or ".." in candidate.parts
-    ):
-        raise ValueError(
-            "ENTITY_TYPE_PROMPT_FILE 必须仅是一个文件名。"
-            "文件从 PROMPT_DIR/entity_type 加载 "
-            "（PROMPT_DIR 默认为 ./prompts）。"
-        )
-    if candidate.suffix.lower() not in _ALLOWED_PROMPT_SUFFIXES:
-        raise ValueError(
-            "ENTITY_TYPE_PROMPT_FILE 必须使用 '.yml' 或 '.yaml' 扩展名。"
-        )
-
-    return get_entity_type_prompt_dir() / candidate.name
-
-
-def _normalize_prompt_examples(
-    value: Any, field_name: str, profile_path: Path
-) -> list[str]:
-    if not isinstance(value, list):
-        raise ValueError(
-            f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 字段 '{field_name}' "
-            "必须是一个字符串列表。"
-        )
-    normalized: list[str] = []
-    for index, item in enumerate(value):
-        if not isinstance(item, str) or not item.strip():
-            raise ValueError(
-                f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 字段 '{field_name}' "
-                f"项 {index} 必须是一个非空字符串。"
-            )
-        normalized.append(item.rstrip())
-    return normalized
-
-
-def load_entity_extraction_prompt_profile(
-    prompt_file: str | Path,
-) -> dict[str, Any]:
-    """从 YAML 加载并验证实体提取 prompt 配置文件。"""
-
-    profile_path = Path(prompt_file)
-    if not profile_path.exists():
-        raise FileNotFoundError(
-            f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 不存在。"
-        )
-    if not profile_path.is_file():
-        raise ValueError(
-            f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 必须指向文件。"
-        )
-
-    try:
-        content = profile_path.read_text(encoding="utf-8")
-    except OSError as exc:
-        raise OSError(
-            f"无法读取 ENTITY_TYPE_PROMPT_FILE '{profile_path}'：{exc}"
-        ) from exc
-
-    try:
-        raw_profile = yaml.safe_load(content)
-    except yaml.YAMLError as exc:
-        raise ValueError(
-            f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 包含无效的 YAML：{exc}"
-        ) from exc
-
-    if raw_profile is None:
-        raw_profile = {}
-    if not isinstance(raw_profile, dict):
-        raise ValueError(
-            f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 必须包含 YAML 映射。"
-        )
-
-    profile: dict[str, Any] = {}
-
-    guidance = raw_profile.get("entity_types_guidance")
-    if guidance is not None:
-        if not isinstance(guidance, str) or not guidance.strip():
-            raise ValueError(
-                f"ENTITY_TYPE_PROMPT_FILE '{profile_path}' 字段 "
-                "'entity_types_guidance' 必须是非空字符串。"
-            )
-        profile["entity_types_guidance"] = guidance.rstrip()
-
-    for field_name in (
-        "entity_extraction_examples",
-        "entity_extraction_json_examples",
-    ):
-        if field_name in raw_profile:
-            profile[field_name] = _normalize_prompt_examples(
-                raw_profile[field_name], field_name, profile_path
-            )
-
-    return profile
-
-
-def resolve_entity_extraction_prompt_profile(
-    addon_params: Mapping[str, Any] | None,
-    use_json: bool,
-) -> EntityExtractionPromptProfile:
-    """解析并合并配置的实体提取 prompt 配置文件。"""
-
-    default_profile = get_default_entity_extraction_prompt_profile()
-    addon_params = addon_params or {}
-    prompt_file = addon_params.get("entity_type_prompt_file")
-
-    file_profile: dict[str, Any] = {}
-    if prompt_file:
-        prompt_path = resolve_entity_type_prompt_path(prompt_file)
-        file_profile = load_entity_extraction_prompt_profile(prompt_path)
-        required_examples_key = (
-            "entity_extraction_json_examples"
-            if use_json
-            else "entity_extraction_examples"
-        )
-        if required_examples_key not in file_profile:
-            mode_name = "json" if use_json else "text"
-            raise ValueError(
-                f"ENTITY_TYPE_PROMPT_FILE '{prompt_file}' 必须定义 "
-                f"'{required_examples_key}'，当实体提取以 "
-                f"{mode_name} 模式运行时。"
-            )
-
-    guidance = addon_params.get("entity_types_guidance")
-    if guidance is None:
-        guidance = file_profile.get(
-            "entity_types_guidance", default_profile["entity_types_guidance"]
-        )
-    elif not isinstance(guidance, str) or not guidance.strip():
-        raise ValueError(
-            "addon_params['entity_types_guidance'] 必须是非空字符串。"
-        )
-
-    return {
-        "entity_types_guidance": guidance,
-        "entity_extraction_examples": list(
-            file_profile.get(
-                "entity_extraction_examples",
-                default_profile["entity_extraction_examples"],
-            )
-        ),
-        "entity_extraction_json_examples": list(
-            file_profile.get(
-                "entity_extraction_json_examples",
-                default_profile["entity_extraction_json_examples"],
-            )
-        ),
-    }
-
-
-def validate_entity_extraction_prompt_profile_for_mode(
-    prompt_profile: Mapping[str, Any],
-    use_json: bool,
-    prompt_file_name: str | None = None,
-) -> EntityExtractionPromptProfile:
-    """验证解析的配置文件是否包含活动模式的示例。"""
-
-    required_examples_key = (
-        "entity_extraction_json_examples" if use_json else "entity_extraction_examples"
-    )
-    if (
-        required_examples_key not in prompt_profile
-        or not prompt_profile[required_examples_key]
-    ):
-        mode_name = "json" if use_json else "text"
-        source = (
-            f"ENTITY_TYPE_PROMPT_FILE '{prompt_file_name}'"
-            if prompt_file_name
-            else "解析的 prompt 配置文件"
-        )
-        raise ValueError(
-            f"{source} 必须定义 '{required_examples_key}'，当实体提取 "
-            f"以 {mode_name} 模式运行时。"
-        )
-
-    return {
-        "entity_types_guidance": str(prompt_profile["entity_types_guidance"]).rstrip(),
-        "entity_extraction_examples": [
-            str(example).rstrip()
-            for example in prompt_profile["entity_extraction_examples"]
-        ],
-        "entity_extraction_json_examples": [
-            str(example).rstrip()
-            for example in prompt_profile["entity_extraction_json_examples"]
-        ],
-    }
